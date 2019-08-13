@@ -2,6 +2,7 @@
   <div id="app">
     <app-navbar></app-navbar>
     <router-view v-if="isRouterAlive" ></router-view>
+    <app-footer></app-footer>
   </div>
 </template>
 

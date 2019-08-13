@@ -49,7 +49,9 @@ Vue.use(Resource)
 
 // Import global Vue compoments
 import navBar from './components/Navbar'
+import footer from './components/Footer'
 Vue.component('app-navbar', navBar)
+Vue.component('app-footer', footer)
 
 // Global filters
 // This pulls in some random number

@@ -18,6 +18,7 @@
     </section>
 
   </div>
+
 </template>
 
 <script>
@@ -70,22 +71,4 @@
 
 <style scoped>
 
-  .hero.is-info {
-    
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-  .p-css {
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-.fonts {
-    font-size: 1rem;
-}
 </style>
