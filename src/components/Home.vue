@@ -1,19 +1,35 @@
 <template>
 
-<div class="">
+<div class="" style="padding: 30px 15%;">
 
     <section class="hero is-fullheight">
 
-      <div class="hero-body">
-      
-        <div class="container has-text-centered">
-
-
-          <div class="column is-6 is-offset-3">
-          </div>
-
-        </div>
-      </div>
+<nav class="level" style="border: solid 1px #00d1b2;padding: 20px;">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Tweets</p>
+      <p class="title">3,456</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Following</p>
+      <p class="title">123</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Followers</p>
+      <p class="title">456K</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Likes</p>
+      <p class="title">789</p>
+    </div>
+  </div>
+</nav>
 
     </section>
 
@@ -32,10 +48,10 @@
       }
     },
     created() {
-        this.timer = setInterval(this.loadData, 1000)
+        // this.timer = setInterval(this.loadData, 1000)
     },
     beforeDestroy () {
-        clearInterval(this.timer)
+        // clearInterval(this.timer)
     },
     methods: {
 
