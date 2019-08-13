@@ -26,10 +26,6 @@
 
           <router-link class="navbar-item" to="/">{{$t("menu.home")}}</router-link>
           <router-link class="navbar-item" to="/blogs">{{$t("menu.blogs")}}</router-link>
-          <router-link class="navbar-item" to="/reward">{{$t("menu.voteReward")}}</router-link>
-          <router-link class="navbar-item" to="/cycleRewardTotal">{{$t("menu.voteCycleReward")}}</router-link>
-          <!-- <router-link class="navbar-item" to="/contact">{{$t("menu.contact")}}</router-link> -->
-          <router-link class="navbar-item" to="/aboutus">{{$t("menu.aboutus")}}</router-link>
 
           <!--DropDown Navbar Items-->
           <!-- <div class="navbar-item has-dropdown is-hoverable">
