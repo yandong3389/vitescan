@@ -1,8 +1,8 @@
 <template>
 
-<div class="" style="padding: 30px 15%;">
+<div class="container" style="padding: 30px 0px;">
 
-    <section class="hero is-fullheight">
+<section class="hero is-fullheight">
 
 <nav class="level" style="border: solid 1px #00d1b2;padding: 20px;background: white;">
   <div class="level-item has-text-centered">
