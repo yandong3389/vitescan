@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import routes from './routes';
-
+import Paginate from 'vuejs-paginate'
+Vue.component('paginate', Paginate)
 import VueParticles from 'vue-particles'
 Vue.use(VueParticles)
 

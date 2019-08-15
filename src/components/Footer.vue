@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top:30px;">
 <footer class="footer">
   <div class="container">
 
