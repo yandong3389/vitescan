@@ -26,7 +26,7 @@ export default [
     path: '/blocks',
     component: blocks,
     meta:{
-        title:'blocks'
+        title:'Blocks'
     }
   },
 //  {
