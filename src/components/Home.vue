@@ -58,11 +58,24 @@
       <div class="card-div">
       <i class="fa fa-cubes fa_width_20 color-grey-100"></i>
       <h5 class="ml-10 lh-220 color-grey-100"><span>区块</span></h5>
-	  <a class="button is-primary is-outlined" style="border-radius: 0.15rem;margin-left: auto !important;">查看全部</a>
+	  <a class="button is-primary is-outlined" style="border-radius: 0.15rem;margin-left: auto !important;font-size: 14px;">查看全部</a>
       </div>
     </div>
-    <ul class="list-group">
-    </ul>
+    <div class="list-group">
+        <div class="mCSB_container" style="position: relative; top: 0px; left: 0px;">
+        	<div v-for="(block, index) in blocksData" class="row">
+				<div class="card" style="width: 100%;"><div class="card-content">
+					<div class="media">
+						<div class=""><i class="fa fa-cube fa_width_15" style="color: #00d1b2;"></i></div>
+						<div class="media-content"><p class="is-4"><a href="#">#{{block.bn}}</a></p></div>
+						<div class="media-content"><p class="is-6"><a href="#">{{block.txns}} txns</a></p></div>
+						<div class="media-content"><p class="is-4">SBP: <a href="#">{{block.sbp}}</a></p> </div>
+						<div class="media-right"><p class="is-6 text-secondary">{{block.date}}</p> </div>
+					</div>
+				</div></div>
+			</div>
+        </div>
+    </div>
     
   </div>
   <div class="column">
@@ -70,11 +83,24 @@
       <div class="card-div">
       <i class="fa fa-server fa_width_20 color-grey-100"></i>
       <h5 class="ml-10 lh-220 color-grey-100"><span>转账</span></h5>
-	  <a class="button is-primary is-outlined" style="border-radius: 0.15rem;margin-left: auto !important;">查看全部</a>
+	  <a class="button is-primary is-outlined" style="border-radius: 0.15rem;margin-left: auto !important;font-size: 14px;">查看全部</a>
       </div>
     </div>
-    <ul class="list-group">
-    </ul>
+	<div class="list-group">
+        <div class="mCSB_container" style="position: relative; top: 0px; left: 0px;">
+        	<div v-for="(block, index) in blocksData" class="row">
+				<div class="card" style="width: 100%;"><div class="card-content">
+					<div class="media">
+						<div class=""><i class="fa fa-bars fa_width_15" style="color: #00d1b2;"></i></div>
+						<div class="media-content"><p class="is-4"><a href="#">TX#{{block.bn}}</a></p></div>
+						<div class="media-content"><p class="is-6">from:<a href="#">{{block.txns}} txns</a></p></div>
+						<div class="media-content"><p class="is-4">to:<a href="#">{{block.sbp}}</a></p> </div>
+						<div class="media-right"><p class="is-6 text-secondary">999 VITE</p> </div>
+					</div>
+				</div></div>
+			</div>
+        </div>
+    </div>
     
   </div>
 </div>
@@ -101,10 +127,21 @@ import options from '../chart-options/options'
       return {
         'logo': logo,
         last:'-',
-        id: 'test',
-      option: option,
-        id2: 'test2',
-      option2: option
+        id:'test', option: option,
+        id2:'test2', option2: option,
+        blocksData:[
+        {bn:14564, txns:123, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14563, txns:12, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14562, txns:33, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14561, txns:119, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14560, txns:13, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14559, txns:23, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14558, txns:993, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14557, txns:45, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14556, txns:553, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14555, txns:857, sbp:'N4Y', date:'1 mins 6 secs ago'}
+        ],
+        txnsData:[]
       }
     },
   components: {
@@ -165,6 +202,10 @@ import options from '../chart-options/options'
     font-size: 2rem;
     width: 30px !important;
 }
+.fa_width_15 {
+    font-size: 1.3rem;
+    width: 30px !important;
+}
 .mr-3, .mx-3 {
     margin-right: 1rem !important;
 }
@@ -185,7 +226,7 @@ h5 {
     flex-direction: column;
     padding-left: 0px;
     margin-bottom: 0px;
-    height: 594px;
+    height: 456px;
     background: white;
 }
 
@@ -199,5 +240,31 @@ h5 {
   width: 400px;
   height: 400px;
   margin: 40px auto;
+}
+
+
+.mCSB_container {
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+    border-bottom: 1px solid #ffffff;
+}
+.text-secondary {
+    color: #77838f!important;
+    font-size: 90%;
+    font-weight: 400;
+}
+.card-content {
+    background-color: transparent;
+    padding: 0.8rem 1.5rem;
 }
 </style>

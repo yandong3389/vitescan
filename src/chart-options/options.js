@@ -9,24 +9,42 @@ module.exports = {
             title: {
                 text: '' //指定图表标题
             },
+            legend: {
+                enabled: false
+            },
             colors: ['#00d1b2', '#50B432', '#ED561B', '#DDDF00', '#24CBE5'],
             xAxis: {
-                    categories: ['1号', '2号', '3号','3号','3号'] //指定x轴分组
+            	    // name:"日期",
+                    categories: ['8/15', '8/15', '8/15','8/15','8/15','8/15', '8/15', '8/15','8/15','8/15','8/15', '8/15', '8/15','8/15','8/15','8/15'] //指定x轴分组
                 },
             yAxis: {
                     title: {
-                    text: null, //指定y轴的标题
+                    text: "", //指定y轴的标题
                 },
                 },
-            plotOptions: {
-                    column: {
-                    colorByPoint:true
-                        },
-                    },
-
+        	plotOptions: {
+                column: {
+            	  colorByPoint:true
+                }
+        	},
             series: [{ //指定数据列
-            	    name:null,
-                    data: [100, 300, 1000, 5000, 4000,5000,2000,8000,20000] //数据
+            		allowPointSelec:true,
+            		lineWidth:1,
+            		fillOpacity:0.2,
+            		compare: null,
+            		dashStyle:'Solid',
+            		linecap:null,
+            		linkedTo: ':previous',
+            	    name:"总交易数",
+            	    marker: {
+        				//fillColor: 'red',
+        				lineWidth: 1,
+        				//  "circle"（圆形）、"square"（正方形）、"diamond"（菱形）、 "triangle"（三角形）及 "triangle-down"（倒三角形）
+        				symbol: 'diamond',
+        				radius:4,
+        				//lineColor: null // inherit from series
+        			},
+                    data: [400, 900, 1000, 5000, 4000,5000,2000,6000,8000,4000, 5000, 3000, 2000, 7000] //数据
                 }]
   }
 }
