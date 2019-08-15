@@ -1,0 +1,177 @@
+<template>
+
+<div class="container" style="padding: 20px 0px;">
+
+<section class="hero">
+
+</section>
+
+ <section class="hero" style="margin-top: 20px;">
+</section>
+
+<section class="hero" style="margin-top: 20px;">
+
+</section>
+    
+  </div>
+  
+
+
+</template>
+
+<script>
+  import axios from 'axios';
+  import logo from './../assets/logo-white.png';
+  
+  // 导入chart组件
+import XChart from './chart.vue'
+// 导入chart组件模拟数据
+import options from '../chart-options/options'
+  
+  export default {
+    data: function() {
+    let option = options.bar
+      return {
+        'logo': logo,
+        last:'-',
+        id:'test', option: option,
+        id2:'test2', option2: option,
+        blocksData:[
+        {bn:14564, txns:123, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14563, txns:12, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14562, txns:33, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14561, txns:119, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14560, txns:13, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14559, txns:23, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14558, txns:993, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14557, txns:45, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14556, txns:553, sbp:'N4Y', date:'1 mins 6 secs ago'},
+        {bn:14555, txns:857, sbp:'N4Y', date:'1 mins 6 secs ago'}
+        ],
+        txnsData:[]
+      }
+    },
+  components: {
+    XChart
+  },
+    created() {
+        // this.timer = setInterval(this.loadData, 1000)
+    },
+    beforeDestroy () {
+        // clearInterval(this.timer)
+    },
+    methods: {
+
+        loadData:function(){
+
+            const self = this;
+            this.url = "http://39.100.79.183:8888/index/blockData";
+
+            this.$axios({
+                    method: 'get',
+                    url:this.url
+            }).then(function(response) {
+                console.log(response)
+                self.last = response.data.data.result.current;
+            }).catch( function(response) {
+                console.log(response)
+            });
+
+        },
+        findViteInfo: function() {
+            this.$http.get('https://jsonplaceholder.typicode.com/posts', {
+            title: this.userInput.Subject,
+            body: this.userInput.Message,
+            userId: 1
+            }).then(function(data){
+            this.showForm = false
+            this.clearPost()
+            })
+        }
+    }
+  }
+</script>
+
+<style scoped>
+
+.card-div{
+    text-align: center !important;
+    display: flex !important;
+    margin-bottom: 0px;
+    background-color: rgba(248, 245, 240, 0.25);
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid rgba(223, 215, 202, 0.75);
+}
+.fa, .fas {
+    font-weight: 900 !important;
+}
+.fa_width_20 {
+    font-size: 2rem;
+    width: 30px !important;
+}
+.fa_width_15 {
+    font-size: 1.3rem;
+    width: 30px !important;
+}
+.mr-3, .mx-3 {
+    margin-right: 1rem !important;
+}
+.tron-light .home .color-grey-100 {
+    color: rgb(51, 51, 51) !important;
+}
+.lh-220 {
+    line-height: 2.2;
+}
+.ml-10 {
+    margin-left: 10px;
+}
+h5 {
+    font-size: 16px;
+}
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    height: 456px;
+    background: white;
+}
+
+.lh-150 {
+    line-height: 1.5;
+}
+.m-0 {
+    margin: 0px !important;
+}
+#test {
+  width: 400px;
+  height: 400px;
+  margin: 40px auto;
+}
+
+
+.mCSB_container {
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+    border-bottom: 1px solid #ffffff;
+}
+.text-secondary {
+    color: #77838f!important;
+    font-size: 90%;
+    font-weight: 400;
+}
+.card-content {
+    background-color: transparent;
+    padding: 0.8rem 1.5rem;
+}
+</style>

@@ -3,9 +3,9 @@
 <nav id="navbar" class="navbar has-shadow is-spaced">
   <div class="container">
   <div class="navbar-brand">
-    <a class="navbar-item" href="#">
+    <router-link class="navbar-item" to="/">
       <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, &amp; modern CSS framework based on Flexbox" width="112" height="28">
-    </a>
+    </router-link>
     <div id="navbarBurger" v-on:click="active = !active" v-bind:class = "{'is-active': active }"  class="navbar-burger burger" data-target="navMenuDocumentation">
       <span></span>
       <span></span>
@@ -24,36 +24,36 @@
         <div id="moreDropdown" class="navbar-dropdown">
             <a class="navbar-item " href="#">
               <span>
-                <span class="icon has-text-success"><i class="fas fa-rocket"></i></span>
-                <strong>View Txnx</strong>
+                <span class="icon has-text-primary"><i class="fa fa-server"></i></span>
+                <strong>View Txns</strong>
                 <br>
                 
               </span>
             </a>
             <a class="navbar-item " href="#">
               <span>
-                <span class="icon has-text-success"><i class="fas fa-rocket"></i></span>
+                <span class="icon has-text-primary"><i class="fa fa-server"></i></span>
                 <strong>View Contract Internal Txns</strong>
                 <br>
                 
               </span>
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item " href="#">
+            <router-link class="navbar-item " to="/blocks">
               <span>
-                <span class="icon has-text-orange">
-                  <svg class="svg-inline--fa fa-plug fa-w-12" aria-hidden="true" data-prefix="fas" data-icon="plug" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M256 144V32c0-17.673 14.327-32 32-32s32 14.327 32 32v112h-64zm112 16H16c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h16v32c0 77.406 54.969 141.971 128 156.796V512h64v-99.204c73.031-14.825 128-79.39 128-156.796v-32h16c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm-240-16V32c0-17.673-14.327-32-32-32S64 14.327 64 32v112h64z"></path></svg><!-- <i class="fas fa-plug"></i> -->
+                <span class="icon has-text-primary">
+                  <i class="fa fa-cubes"></i>
                 </span>
                 <strong>View Blocks</strong>
                 <br>
                 
               </span>
-            </a>
+            </router-link>
             <hr class="navbar-divider">
             <a class="navbar-item " href="#">
               <span>
-                <span class="icon has-text-orange">
-                  <svg class="svg-inline--fa fa-plug fa-w-12" aria-hidden="true" data-prefix="fas" data-icon="plug" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M256 144V32c0-17.673 14.327-32 32-32s32 14.327 32 32v112h-64zm112 16H16c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h16v32c0 77.406 54.969 141.971 128 156.796V512h64v-99.204c73.031-14.825 128-79.39 128-156.796v-32h16c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm-240-16V32c0-17.673-14.327-32-32-32S64 14.327 64 32v112h64z"></path></svg><!-- <i class="fas fa-plug"></i> -->
+                <span class="icon has-text-primary">
+                  <i class="fa fa-users"></i>
                 </span>
                 <strong>Top Accounts</strong>
                 <br>
@@ -63,8 +63,8 @@
             <hr class="navbar-divider">
             <a class="navbar-item " href="#">
               <span>
-                <span class="icon has-text-orange">
-                  <svg class="svg-inline--fa fa-plug fa-w-12" aria-hidden="true" data-prefix="fas" data-icon="plug" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M256 144V32c0-17.673 14.327-32 32-32s32 14.327 32 32v112h-64zm112 16H16c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h16v32c0 77.406 54.969 141.971 128 156.796V512h64v-99.204c73.031-14.825 128-79.39 128-156.796v-32h16c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm-240-16V32c0-17.673-14.327-32-32-32S64 14.327 64 32v112h64z"></path></svg><!-- <i class="fas fa-plug"></i> -->
+                <span class="icon has-text-primary">
+                  <i class="fa fa-file-contract"></i>
                 </span>
                 <strong>Verified Contracts</strong>
                 <br>
@@ -128,7 +128,7 @@
             <a class="navbar-item " href="#">
               <span>
                 <span class="icon has-text-primary">
-                  <svg class="svg-inline--fa fa-plug fa-w-12" aria-hidden="true" data-prefix="fas" data-icon="plug" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M256 144V32c0-17.673 14.327-32 32-32s32 14.327 32 32v112h-64zm112 16H16c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h16v32c0 77.406 54.969 141.971 128 156.796V512h64v-99.204c73.031-14.825 128-79.39 128-156.796v-32h16c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm-240-16V32c0-17.673-14.327-32-32-32S64 14.327 64 32v112h64z"></path></svg><!-- <i class="fas fa-plug"></i> -->
+                  <i class="fa fa-chart-line"></i>
                 </span>
                 <strong>Charts & Statistics</strong>
                 <br>
@@ -154,7 +154,7 @@
             <router-link class="navbar-item" @click.native="changelang('en')" to="">
               <span>
                 <span class="icon has-text-success">
-                  <i class="fas fa-rocket"></i>
+                  <!--<i class="fa fa-globe"></i>--><i class="fa fa-globe"></i>
                 </span>
                 <strong>EN</strong>
               </span>
@@ -163,7 +163,7 @@
             <router-link class="navbar-item" @click.native="changelang('zh')" to="">
               <span>
                 <span class="icon has-text-orange">
-                  <i class="fas fa-plug"></i>
+                  <!--<i class="fa fa-globe"></i>--><i class="fa fa-globe"></i>
                 </span>
                 <strong>中文</strong>
               </span>
@@ -178,7 +178,7 @@
   
   <div class="navbar-item search-item" style="">
 <input placeholder="Search by Block / Transaction / Account / Token" value="" class="search-input">
-<a href="/" class="button is-primary router-link-exact-active router-link-active" style="border-radius: 0px 4px 4px 0px;"><span class="fas fa-search"></span></a>
+<router-link to="/" class="button is-primary router-link-exact-active router-link-active" style="border-radius: 0px 4px 4px 0px;"><span class="fas fa-search"></span></router-link>
 </div>
 
   </div>
@@ -232,7 +232,7 @@
     max-height: none!important;
 }
 .moreDropdownEN {
-    width: 10rem;
+    width: 7rem;
 }
 .is-active .moreDropdownEN {
     width: 100%;

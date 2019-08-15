@@ -1,5 +1,5 @@
 import home from '@/components/Home'
-//import blogs from '@/components/Blogs'
+import blocks from '@/components/Blocks'
 //import showblog from '@/components/ShowBlog'
 //import aboutus from '@/components/AboutUs'
 //import contact from '@/components/Contact'
@@ -21,14 +21,14 @@ export default [
         title:'Home'
     }
   }
-//  ,
-//  {
-//    path: '/reward',
-//    component: voteReward,
-//    meta:{
-//        title:'Vote Rewards'
-//    }
-//  },
+  ,
+  {
+    path: '/blocks',
+    component: blocks,
+    meta:{
+        title:'blocks'
+    }
+  },
 //  {
 //    path: '/cycleRewardTotal',
 //    component: voteCycleRewardTotal,
