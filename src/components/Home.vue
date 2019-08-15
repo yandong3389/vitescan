@@ -31,7 +31,7 @@
   <div class="column">
     <div class="bd-notification" style="background: white;">
     	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150"><a href="#" style="color: #00d1b2;"><span> 过去14天交易数</span></a></h5></div>
-    	<div class="card-body pt-0" style="padding-left: 2rem; padding-right: 2rem;">
+    	<div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
     	  <div style="min-width: 255px; height: 200px;">
     	      <x-chart :id="id" :option="option"></x-chart>
     	  </div>
@@ -41,7 +41,7 @@
   <div class="column">
     <div class="bd-notification" style="background: white;">
     	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150"><a href="#" style="color: #00d1b2;"><span> 过去14天地址数</span></a></h5></div>
-    	<div class="card-body pt-0" style="padding-left: 2rem; padding-right: 2rem;">
+    	<div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
     	  <div id="container" style="min-width: 255px; height: 200px;">
     	      <x-chart :id="id2" :option="option2"></x-chart>
     	  </div>
