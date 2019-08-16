@@ -2,7 +2,7 @@
   <div>
   
   
-<nav id="navbar" class="navbar is-spaced logoHid" style="padding: 0rem 2rem 0rem 2rem;z-index: 9999;">
+<nav id="navbar" class="navbar is-spaced logoHid" style="padding: 0rem 2rem 0rem 2rem;z-index: 31;">
 	<div class="container">
 	<div class="navbar-brand">
 	<router-link class="navbar-item" to="/">
@@ -31,6 +31,7 @@
             </router-link>
             </div>
         </div>
+        
         <div class="navbar-item has-dropdown is-hoverable" style="width: 120px;">
           <a class="navbar-link">
           <span class="icon">
@@ -375,4 +376,10 @@ display:none;
     min-height: 90px;
 }
 }
+
+
+.navbar-item .has-dropdown:hover .navbar-dropdown {
+    display: block;
+}
+
 </style>
