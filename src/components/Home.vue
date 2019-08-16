@@ -43,18 +43,19 @@
 </section>
 
  <section class="hero" style="margin-top: 20px;">
-<div class="columns is-desktop">
-  <div class="column">
+<div class="columns is-desktop" style="margin-right: 0rem;">
+  <div class="column" style="padding-right: 0rem;">
     <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
     	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150"><a href="#" style="color: #00d1b2;"><span> 过去14天交易数</span></a></h5></div>
-    	<div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
-    	  <div style="min-width: 255px; height: 200px;">
+    	  <div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
+    	    <div style="min-width: 255px; height: 200px;">
     	      <x-chart :id="id" :option="option"></x-chart>
-    	  </div>
+    	    </div>
     	</div>
-    </div>
+	</div>
   </div>
-  <div class="column">
+
+  <div class="column" style="padding-right: 0rem;">
     <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
     	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150"><a href="#" style="color: #00d1b2;"><span> 过去14天地址数</span></a></h5></div>
     	<div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
@@ -67,9 +68,10 @@
 </div>
 </section>
 
+
 <section class="hero" style="margin-top: 20px;">
-<div class="columns is-desktop">
-  <div class="column">
+<div class="columns is-desktop" style="margin-right: 0rem;">
+  <div class="column" style="padding-right: 0rem;">
     <div class="" style="background: white;">
       <div class="card-div">
       <i class="fa fa-cubes fa_width_20 color-grey-100"></i>
@@ -84,9 +86,9 @@
 					<div class="media">
 						<div class=""><i class="fa fa-cube fa_width_15" style="color: #00d1b2;"></i></div>
 						<div class="media-content"><p class="is-4"><a href="#">#{{block.bn}}</a></p></div>
-						<div class="media-content"><p class="is-6"><a href="#">{{block.txns}} txns</a></p></div>
-						<div class="media-content"><p class="is-4">SBP: <a href="#">{{block.sbp}}</a></p> </div>
-						<div class="media-right"><p class="is-6 text-secondary">{{block.date}}</p> </div>
+						<div class="media-content"><p class="is-6"><a href="#">&nbsp;{{block.txns}} txns</a></p></div>
+						<div class="media-content"><p class="is-4">&nbsp;SBP: <a href="#">{{block.sbp}}</a></p> </div>
+						<div class="media-right"><p class="is-6 text-secondary">&nbsp;{{block.date}}</p> </div>
 					</div>
 				</div></div>
 			</div>
@@ -94,7 +96,7 @@
     </div>
     
   </div>
-  <div class="column">
+  <div class="column" style="padding-right: 0rem;">
     <div class="" style="background: white;">
       <div class="card-div">
       <i class="fa fa-server fa_width_20 color-grey-100"></i>
@@ -109,9 +111,9 @@
 					<div class="media">
 						<div class=""><i class="fa fa-bars fa_width_15" style="color: #00d1b2;"></i></div>
 						<div class="media-content"><p class="is-4"><a href="#">TX#{{txObj.hash}}</a></p></div>
-						<div class="media-content"><p class="is-6">from:<a href="#">{{txObj.from}}</a></p></div>
-						<div class="media-content"><p class="is-4">to:<a href="#">{{txObj.to}}</a></p> </div>
-						<div class="media-right"><p class="is-6 text-secondary">{{txObj.qty}}</p> </div>
+						<div class="media-content"><p class="is-6">&nbsp;from:<a href="#">{{txObj.from}}</a></p></div>
+						<div class="media-content"><p class="is-4">&nbsp;to:<a href="#">{{txObj.to}}</a></p> </div>
+						<div class="media-right"><p class="is-6 text-secondary">&nbsp;{{txObj.qty}}</p> </div>
 					</div>
 				</div></div>
 			</div>
@@ -146,28 +148,28 @@ import options from '../chart-options/options'
         id:'test', option: option,
         id2:'test2', option2: option,
         blocksData:[
-        {bn:14564, txns:123, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14563, txns:12, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14562, txns:33, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14561, txns:119, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14560, txns:13, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14559, txns:23, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14558, txns:993, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14557, txns:45, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14556, txns:553, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14555, txns:857, sbp:'N4Y', date:'1 mins 6 secs ago'}
+        {bn:7266066, txns:123, sbp:'N4Y', date:'6 secs ago'},
+        {bn:7266066, txns:12, sbp:'N4Y', date:'6 secs ago'},
+        {bn:7266066, txns:33, sbp:'N4Y', date:'6 secs ago'},
+        {bn:7266066, txns:119, sbp:'N4Y', date:'6 secs ago'},
+        {bn:7266066, txns:13, sbp:'N4Y', date:'6 secs ago'},
+        {bn:7266066, txns:1553, sbp:'N4QN4Q.org', date:'1 mins ago'},
+        {bn:7266066, txns:23, sbp:'N4Y', date:'1 mins ago'},
+        {bn:7266066, txns:993, sbp:'N4Y', date:'1 mins ago'},
+        {bn:7266066, txns:45, sbp:'N4Y', date:'1 mins ago'},
+        {bn:7266066, txns:857, sbp:'N4Y', date:'1 mins ago'}
         ],
         txnsData:[
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'}
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'}
         ]
       }
     },
@@ -252,7 +254,7 @@ h5 {
     flex-direction: column;
     padding-left: 0px;
     margin-bottom: 0px;
-    height: 456px;
+    /** height: 456px; */
     background: white;
 }
 
@@ -282,7 +284,6 @@ h5 {
     flex-wrap: wrap;
     margin-right: -7.5px;
     margin-left: -7.5px;
-    border-bottom: 1px solid #ffffff;
 }
 .text-secondary {
     color: #77838f!important;
