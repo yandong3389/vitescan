@@ -6777,7 +6777,6 @@ body.has-navbar-fixed-bottom,html.has-navbar-fixed-bottom {
     }
 }
 
-/**
 @media screen and (min-width: 1024px) {
     .navbar,.navbar-end,.navbar-menu,.navbar-start {
         align-items:stretch;
@@ -6854,7 +6853,9 @@ body.has-navbar-fixed-bottom,html.has-navbar-fixed-bottom {
     }
 
     .navbar-item.is-active .navbar-dropdown.is-boxed,.navbar-item.is-hoverable:focus .navbar-dropdown.is-boxed,.navbar-item.is-hoverable:focus-within .navbar-dropdown.is-boxed,.navbar-item.is-hoverable:hover .navbar-dropdown.is-boxed,.navbar.is-spaced .navbar-item.is-active .navbar-dropdown,.navbar.is-spaced .navbar-item.is-hoverable:focus .navbar-dropdown,.navbar.is-spaced .navbar-item.is-hoverable:focus-within .navbar-dropdown,.navbar.is-spaced .navbar-item.is-hoverable:hover .navbar-dropdown {
+/**
         opacity: 1;
+*/
         pointer-events: auto;
         -webkit-transform: translateY(0);
         transform: translateY(0)
@@ -6989,7 +6990,6 @@ body.has-navbar-fixed-bottom,html.has-navbar-fixed-bottom {
         background-color: #fafafa
     }
 }
-*/
 .hero.is-fullheight-with-navbar {
     min-height: calc(100vh - 3.25rem)
 }

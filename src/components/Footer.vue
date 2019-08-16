@@ -1,6 +1,6 @@
 <template>
   <div style="margin-top:30px;">
-<footer class="footer" style="background-color: #333;color: white;display: block;">
+<footer class="footer" style="background-color: #333;color: white;">
   <div class="container">
 
 <div class="bd-footer-links">
@@ -63,7 +63,7 @@
       <p class="bd-footer-link-title">
         <a href="#">More</a>
       </p>
-      <hr class="navbar-divider" style="background-color: #00d1b2;">
+      <hr class="navbar-divider" style="background-color: #00d1b2;display: block;">
       <p class="bd-footer-link bd-has-subtitle">
 	    <a href="#">
 	    <span class="bd-footer-link-icon has-text-star">
