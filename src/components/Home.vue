@@ -4,32 +4,48 @@
 
 <section class="hero">
 
-<nav class="level" style="padding: 20px;background: white;">
-  <div class="level-item has-text-centered">
-    <div><p class="heading">线上节点</p><p class="title">3,456</p></div>
-  </div>
-  <div class="level-item has-text-centered">
+
+<div class="level is-desktop" style="padding: 20px;background: white;margin-bottom: 0rem;">
+  <div class="column level-item has-text-centered">
     <div><p class="heading">区块高度</p><p class="title">3,456</p></div>
   </div>
-  <div class="level-item has-text-centered">
+  <div class="column level-item has-text-centered">
     <div><p class="heading">当前/峰值TPS</p><p class="title">123</p></div>
   </div>
-  <div class="level-item has-text-centered">
+  <div class="column level-item has-text-centered">
     <div><p class="heading">过去24小时交易量</p><p class="title">456K</p></div>
   </div>
-  <div class="level-item has-text-centered">
+  <div class="column level-item has-text-centered">
     <div><p class="heading">总地址数</p><p class="title">789</p></div>
   </div>
-  <div class="level-item has-text-centered">
+  <div class="column level-item has-text-centered">
+    <div><p class="heading">当前总发行量</p><p class="title">789</p></div>
+  </div>
+</div>
+<hr class="navbar-divider" style="margin: 0px;">
+<div class="level is-desktop" style="padding: 20px;background: white;">
+    <div class="column level-item has-text-centered">
+    <div><p class="heading">超级节点</p><p class="title">3,456</p></div>
+  </div>
+  <div class="column level-item has-text-centered">
+    <div><p class="heading">全节点</p><p class="title">3,456</p></div>
+  </div>
+  <div class="column level-item has-text-centered">
+    <div><p class="heading">Token数量</p><p class="title">456K</p></div>
+  </div>
+  <div class="column level-item has-text-centered">
     <div><p class="heading">价格</p><p class="title">789</p></div>
   </div>
-</nav>
+  <div class="column level-item has-text-centered">
+    <div><p class="heading">市值排名</p><p class="title">789</p></div>
+  </div>
+</div>
 </section>
 
  <section class="hero" style="margin-top: 20px;">
 <div class="columns is-desktop">
   <div class="column">
-    <div class="bd-notification" style="background: white;">
+    <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
     	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150"><a href="#" style="color: #00d1b2;"><span> 过去14天交易数</span></a></h5></div>
     	<div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
     	  <div style="min-width: 255px; height: 200px;">
@@ -39,7 +55,7 @@
     </div>
   </div>
   <div class="column">
-    <div class="bd-notification" style="background: white;">
+    <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
     	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150"><a href="#" style="color: #00d1b2;"><span> 过去14天地址数</span></a></h5></div>
     	<div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
     	  <div id="container" style="min-width: 255px; height: 200px;">
@@ -88,14 +104,14 @@
     </div>
 	<div class="list-group">
         <div class="mCSB_container" style="position: relative; top: 0px; left: 0px;">
-        	<div v-for="(block, index) in blocksData" class="row">
+        	<div v-for="(txObj, index) in txnsData" class="row">
 				<div class="card" style="width: 100%;"><div class="card-content">
 					<div class="media">
 						<div class=""><i class="fa fa-bars fa_width_15" style="color: #00d1b2;"></i></div>
-						<div class="media-content"><p class="is-4"><a href="#">TX#{{block.bn}}</a></p></div>
-						<div class="media-content"><p class="is-6">from:<a href="#">{{block.txns}} txns</a></p></div>
-						<div class="media-content"><p class="is-4">to:<a href="#">{{block.sbp}}</a></p> </div>
-						<div class="media-right"><p class="is-6 text-secondary">999 VITE</p> </div>
+						<div class="media-content"><p class="is-4"><a href="#">TX#{{txObj.hash}}</a></p></div>
+						<div class="media-content"><p class="is-6">from:<a href="#">{{txObj.from}}</a></p></div>
+						<div class="media-content"><p class="is-4">to:<a href="#">{{txObj.to}}</a></p> </div>
+						<div class="media-right"><p class="is-6 text-secondary">{{txObj.qty}}</p> </div>
 					</div>
 				</div></div>
 			</div>
@@ -141,7 +157,18 @@ import options from '../chart-options/options'
         {bn:14556, txns:553, sbp:'N4Y', date:'1 mins 6 secs ago'},
         {bn:14555, txns:857, sbp:'N4Y', date:'1 mins 6 secs ago'}
         ],
-        txnsData:[]
+        txnsData:[
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'},
+        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_873...a467b', qty:'999 VITE'}
+        ]
       }
     },
   components: {
@@ -186,7 +213,6 @@ import options from '../chart-options/options'
 </script>
 
 <style scoped>
-
 .card-div{
     text-align: center !important;
     display: flex !important;
@@ -266,5 +292,12 @@ h5 {
 .card-content {
     background-color: transparent;
     padding: 0.8rem 1.5rem;
+}
+.pt-0, .py-0 {
+    padding-top: 0!important;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
 }
 </style>

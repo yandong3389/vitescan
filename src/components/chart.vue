@@ -1,7 +1,7 @@
 <template>
   <div class="x-bar">
     <div :id="id"
-    :option="option" style="min-width: 255px; height: 200px;" ></div>
+    :option="option" class="chart-div" style="" ></div>
   </div>
 </template>
 <script>
@@ -21,3 +21,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+.chart-div{
+min-width: 255px; 
+height: 200px;
+}
+>/style>

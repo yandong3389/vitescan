@@ -1,17 +1,15 @@
 <template>
   <div style="margin-top:30px;">
-<footer class="footer">
+<footer class="footer" style="background-color: #333;color: white;display: block;">
   <div class="container">
 
 <div class="bd-footer-links">
   <div class="columns">
     <div class="column is-3">
       <p class="bd-footer-link-title">
-        <a href="#">Home</a>
-      </p>
-      <p class="bd-footer-link-title">
         <a href="#">Blog</a>
       </p>
+      <hr class="navbar-divider" style="background-color: #00d1b2;display: block;">
         <p class="bd-footer-link">
           <a href="#">Automatic variables docs</a>
         </p>
@@ -33,6 +31,7 @@
       <p class="bd-footer-link-title">
         <a href="#">Documentation</a>
       </p>
+      <hr class="navbar-divider" style="background-color: #00d1b2;display: block;">
         <p class="bd-footer-link">
           <a href="#">Overview</a>
         </p>
@@ -64,7 +63,7 @@
       <p class="bd-footer-link-title">
         <a href="#">More</a>
       </p>
-      
+      <hr class="navbar-divider" style="background-color: #00d1b2;">
       <p class="bd-footer-link bd-has-subtitle">
 	    <a href="#">
 	    <span class="bd-footer-link-icon has-text-star">
@@ -106,8 +105,6 @@
 		    <em>The official community badge</em>
 		  </a>
 		</p>
-
-      
         
         <p class="bd-footer-link bd-has-subtitle">
 		  <a href="#">
@@ -118,9 +115,7 @@
 		    <em>See how Bulma is an alternative to Bootstrap</em>
 		  </a>
 		</p>
-
       
-        
         <p class="bd-footer-link bd-has-subtitle">
 		  <a href="#">
 		    <span class="bd-footer-link-icon has-text-patreon">
@@ -141,7 +136,6 @@
 		  </a>
 		</p>
 
-      
     </div>
   </div>
 </div>
@@ -149,6 +143,8 @@
   </div>
 </footer>
   </div>
+  
+  
 </template>
 
 <script>
@@ -174,5 +170,9 @@
 .bd-footer-links {
     margin-top: 0.5rem;
     padding-bottom: 0.5rem;
+}
+.bd-footer-links a {
+    /* color: currentColor; */
+    color: white;
 }
 </style>

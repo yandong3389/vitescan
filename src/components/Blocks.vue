@@ -3,12 +3,13 @@
 <div class="container" style="">
 
 <header class="bd-header" style="margin-bottom: 0rem;">
-  <div class="bd-header-titles">
-    <h1 class="title">Blocks</h1>
-    <p class="subtitle is-4">Block #8355250 to #8355274 (Total of 8,355,275 blocks)</p>
+  <div class="bd-header-titles" >
+    <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Blocks</h1>
+    <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Block #8355250 to #8355274 (Total of 8,355,275 blocks)</p>
   </div>
 </header>
-<div class="container" style="margin-bottom: 1rem;">
+<div class="table-pdiv" style="margin-bottom: 1rem;">
+<div class="container table-div" >
 
         <table class="table" style="width: 100%;">
         <thead>
@@ -21,15 +22,18 @@
         </thead>
         <tbody>
             <tr v-for="data in blocksData">
-            <td>{{data.bn}}</td>
-            <td>{{data.txns}} txns</td>
-            <td>{{data.sbp}}</td>
+            <td><a href="#">#{{data.bn}}</a></td>
+            <td><a href="#">{{data.txns}} txns</a></td>
+            <td><a href="#">{{data.sbp}}</a></td>
             <td>{{data.date }}</td>
             </tr>
         </tbody>
         </table>
       </div>
     <div>
+    </div>
+  </div>
+  
 	<paginate
 	    :page-count="20"
 	    :page-range="3"
@@ -41,8 +45,6 @@
 	    :page-class="'page-itemV'"
 	    :page-link-class="'page-itemVA'">
 	  </paginate>
-  </div>
-  
   </div>
 </template>
 
@@ -98,5 +100,14 @@
 </script>
 
 <style scoped lang="css">
+@media screen and (max-width: 750px){
+.table-div {
+    width: 1000px;
+}
+.table-pdiv {
+    overflow-x: auto;
+    overflow-y:hidden;
+}
 
+}
 </style>
