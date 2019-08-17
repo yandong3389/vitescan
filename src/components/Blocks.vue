@@ -102,7 +102,7 @@
 <style scoped lang="css">
 @media screen and (max-width: 750px){
 .table-div {
-    width: 1000px;
+    width: 600px;
 }
 .table-pdiv {
     overflow-x: auto;
