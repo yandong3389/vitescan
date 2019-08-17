@@ -1,11 +1,16 @@
 .paginationV {
     align-items: center;
     display: flex;
-    justify-content: center;
-    text-align: center;
-    font-size: 1rem;
-    margin: -.25rem;
+    justify-content: left;
+    text-align: left;
+    margin-top: 1rem;
 }
+
+.paginationV .disabled > a {
+    background: #f0eeee;
+    color: #333;
+}
+
 .paginationV > li {
     display: inline;
         outline: none;
@@ -13,8 +18,8 @@
 
 .paginationV > li:first-child > a, .paginationV > li:first-child > span {
     margin-left: 0;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+   /** border-top-left-radius: 4px; 
+    border-bottom-left-radius: 4px; */
 }
 .paginationV > li > a, .paginationV > li > span {
     position: relative;

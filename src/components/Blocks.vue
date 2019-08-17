@@ -11,7 +11,7 @@
 <div class="table-pdiv" style="margin-bottom: 1rem;">
 <div class="container table-div" >
 
-        <table class="table" style="width: 100%;">
+        <table class="table" style="width: 100%;border: solid 1px #dbdbdb;">
         <thead>
             <tr>
             <th>Block Number</th>
@@ -32,7 +32,7 @@
       </div>
     <div>
     </div>
-  </div>
+
   
 	<paginate
 	    :page-count="20"
@@ -44,7 +44,11 @@
 	    :container-class="'paginationV'"
 	    :page-class="'page-itemV'"
 	    :page-link-class="'page-itemVA'">
+
+      <li ><a tabindex="0">Next</a></li>
 	  </paginate>
+
+      </div>
   </div>
 </template>
 
@@ -102,7 +106,7 @@
 <style scoped lang="css">
 @media screen and (max-width: 750px){
 .table-div {
-    width: 600px;
+    width: 700px;
 }
 .table-pdiv {
     overflow-x: auto;
