@@ -97,22 +97,23 @@
           <span>Blockchain</span>
         </a>
         <div id="moreDropdown" class="navbar-dropdown">
-            <a class="navbar-item " href="#">
+            <router-link class="navbar-item " to="/transactions">
               <span>
                 <span class="icon has-text-primary"><i class="fa fa-server"></i></span>
                 <strong>View Txns</strong>
                 <br>
                 
               </span>
-            </a>
-            <a class="navbar-item " href="#">
+            </router-link>
+
+            <router-link class="navbar-item " to="/transactions">
               <span>
                 <span class="icon has-text-primary"><i class="fa fa-server"></i></span>
                 <strong>View Contract Internal Txns</strong>
                 <br>
                 
               </span>
-            </a>
+            </router-link>
             <hr class="navbar-divider">
             <router-link class="navbar-item " to="/blocks">
               <span>
@@ -125,7 +126,7 @@
               </span>
             </router-link>
             <hr class="navbar-divider">
-            <a class="navbar-item " href="#">
+            <router-link class="navbar-item " to="/accounts">
               <span>
                 <span class="icon has-text-primary">
                   <i class="fa fa-users"></i>
@@ -134,7 +135,7 @@
                 <br>
                 Top Accounts by VITE Balance
               </span>
-            </a>
+            </router-link>
             <hr class="navbar-divider">
             <a class="navbar-item " href="#">
               <span>
@@ -149,14 +150,15 @@
         </div>
       </div>
     
-        <a class="navbar-item bd-navbar-item-videos " href="#">
+        
+        <router-link class="navbar-item " to="/tokens">
           <span class="icon has-text-primary"><i class="fas fa-coins"></i></span>
           <span>Tokens</span>
-        </a>
-        <a class="navbar-item bd-navbar-item-blog " href="#">
+        </router-link>
+        <router-link class="navbar-item " to="/sbps">
           <span class="icon has-text-primary"><i class="fa fa-server"></i></span>
           <span>SBP</span>
-        </a>
+        </router-link>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" href="#">

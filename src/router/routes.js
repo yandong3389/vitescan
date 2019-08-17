@@ -1,5 +1,9 @@
 import home from '@/components/Home'
 import blocks from '@/components/Blocks'
+import transactions from '@/components/Transactions'
+import tokens from '@/components/Tokens'
+import sbps from '@/components/SBPList'
+import accounts from '@/components/Accounts'
 //import showblog from '@/components/ShowBlog'
 //import aboutus from '@/components/AboutUs'
 //import contact from '@/components/Contact'
@@ -27,6 +31,34 @@ export default [
     component: blocks,
     meta:{
         title:'Blocks'
+    }
+  },
+  {
+    path: '/transactions',
+    component: transactions,
+    meta:{
+        title:'Transactions'
+    }
+  },
+  {
+    path: '/tokens',
+    component: tokens,
+    meta:{
+        title:'Tokens'
+    }
+  },
+  {
+    path: '/sbps',
+    component: sbps,
+    meta:{
+        title:'SBP List'
+    }
+  },
+  {
+    path: '/accounts',
+    component: accounts,
+    meta:{
+        title:'Top Accounts'
     }
   },
 //  {
