@@ -110,7 +110,7 @@
     <hr class="navbar-divider" style="background-color: #00d1b2;display: block;">
     <div class="columns is-vcentered">
         <div class="column"><p class="is-4 has-text-grey-light">Copyright© 2019 vitescan.io</p></div> 
-		<div class="column" style="text-align: right;"><p class="is-4 has-text-grey-light">Donations: vite_8733f9bfd23022b433c9191704d4ceaae5578b4d1aba12345b</p></div>
+		<div class="column" style="text-align: right;overflow-x: auto;"><p class="is-4 has-text-grey-light">Donations: vite_8733f9bfd23022b433c9191704d4ceaae5578b4d1aba12345b</p></div>
 	</div>
   </div>
   
