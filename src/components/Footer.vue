@@ -6,7 +6,7 @@
   <div class="columns">
     <div class="column is-3">
       <p class="bd-footer-link-title" style="color: white;">ViteScan</p>
-      <hr class="navbar-divider" style="background-color: #00d1b2;display: block;">
+      <hr class="navbar-divider theme-color hrshow">
         <p class="bd-footer-link">
           <a href="#">关于我们</a>
         </p>
@@ -28,7 +28,7 @@
 
     <div class="column is-3">
       <p class="bd-footer-link-title" style="color: white;">Vite开发中心</p>
-      <hr class="navbar-divider" style="background-color: #00d1b2;display: block;">
+      <hr class="navbar-divider theme-color hrshow">
         <p class="bd-footer-link">
           <a href="#" target="_blank">Github</a>
         </p>
@@ -49,7 +49,7 @@
 
     <div class="column is-6">
       <p class="bd-footer-link-title" style="color: white;">Vite生态</p>
-      <hr class="navbar-divider" style="background-color: #00d1b2;display: block;">
+      <hr class="navbar-divider theme-color hrshow">
       <p class="bd-footer-link bd-has-subtitle">
 	    <a href="https://vite.org/" target="_blank">
 	    <span class="bd-footer-link-icon has-text-star">
@@ -107,10 +107,10 @@
 
   </div>
   <div class="container" style="background-color: rgb(51, 51, 51);color: white;margin-top: 50px;">
-    <hr class="navbar-divider" style="background-color: #00d1b2;display: block;">
+    <hr class="navbar-divider theme-color hrshow">
     <div class="columns is-vcentered">
-        <div class="column"><p class="is-4 has-text-grey-light">Copyright© 2019 vitescan.io</p></div> 
-		<div class="column" style="text-align: right;overflow-x: auto;"><p class="is-4 has-text-grey-light">Donations: vite_8733f9bfd23022b433c9191704d4ceaae5578b4d1aba12345b</p></div>
+        <div class="column is-4"><p class=" has-text-grey-light">Copyright© 2019 vitescan.io</p></div> 
+		<div class="column is-8 leftright" style=""><p class="has-text-grey-light">Donations: vite_8733f9bfd23022b433c9191704d4ceaae5578b4d1aba12345b</p></div>
 	</div>
   </div>
   
@@ -149,4 +149,19 @@
     /* color: currentColor; */
     color: white;
 }
+.hrshow{
+display: block;
+}
+
+.column.leftright{
+text-align: left;
+overflow-x: auto;
+}
+@media screen and (min-width: 770px){
+.column.leftright{
+text-align: right;
+overflow-x: auto;
+}
+}
+
 </style>

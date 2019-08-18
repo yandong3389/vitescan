@@ -118,3 +118,41 @@ display:none;
 }
 
 
+.card div:hover {
+    background-color: #f8f8f8;
+}
+.theme-color{
+    background-color: #6c757e;
+  }
+  .theme-color-font{
+    color: #6c757e;
+  }
+  ::selection {
+    background-color: #3498db;
+    color: #fff;
+}
+.button.theme-color.is-outlined {
+    background-color: transparent;
+    border-color: #6c757e;
+    color: #6c757e;
+}
+.button.theme-color {
+    background-color: #6c757e;
+    border-color: #6c757e;
+    color: #ffffff;
+}
+.button.theme-color.is-active, .button.theme-color:active {
+    background-color: #c5ccd3;
+    border-color: #c5ccd3;
+    color: #ffffff;
+}
+.button.theme-color.is-outlined.is-focused, .button.theme-color.is-outlined.is-hovered, .button.theme-color.is-outlined:focus, .button.theme-color:hover {
+    background-color: #c5ccd3;
+    border-color: #c5ccd3;
+    color: #fff;
+}
+.navbar-link:not(.is-arrowless)::after {
+    border-color: #6c757e;
+    margin-top: -.375em;
+    right: 1.125em;
+}

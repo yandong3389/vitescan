@@ -46,7 +46,7 @@
 <div class="columns is-desktop" style="margin-right: 0rem;">
   <div class="column" style="padding-right: 0rem;">
     <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
-    	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150"><a href="#" style="color: #00d1b2;"><span> 过去14天交易数</span></a></h5></div>
+    	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150 theme-color-font"><span> 过去14天交易数</span></h5></div>
     	  <div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
     	    <div style="min-width: 255px; height: 200px;">
     	      <x-chart :id="id" :option="option"></x-chart>
@@ -57,7 +57,7 @@
 
   <div class="column" style="padding-right: 0rem;">
     <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
-    	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150"><a href="#" style="color: #00d1b2;"><span> 过去14天地址数</span></a></h5></div>
+    	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150 theme-color-font"><span> 过去14天地址数</span></h5></div>
     	<div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
     	  <div id="container" style="min-width: 255px; height: 200px;">
     	      <x-chart :id="id2" :option="option2"></x-chart>
@@ -74,9 +74,9 @@
   <div class="column" style="padding-right: 0rem;">
     <div class="" style="background: white;">
       <div class="card-div">
-      <i class="fa fa-cubes fa_width_20 color-grey-100"></i>
-      <h5 class="ml-10 lh-220 color-grey-100"><span>区块</span></h5>
-	  <a class="button is-primary is-outlined" style="border-radius: 0.15rem;margin-left: auto !important;font-size: 14px;">查看全部</a>
+      <i class="fa fa-cubes fa_width_20 theme-color-font"></i>
+      <h5 class="ml-10 lh-220 theme-color-font"><span>区块</span></h5>
+    <router-link class="button theme-color is-outlined" style="border-radius: 0.15rem;margin-left: auto !important;font-size: 14px;" to="/blocks">查看全部</router-link>
       </div>
     </div>
     <div class="list-group">
@@ -84,8 +84,8 @@
         	<div v-for="(block, index) in blocksData" class="row">
 				<div class="card" style="width: 100%;"><div class="card-content">
 					<div class="media">
-						<div class=""><i class="fa fa-cube fa_width_15" style="color: #00d1b2;"></i></div>
-						<div class="media-content"><p class="is-4"><a href="#">#{{block.bn}}</a></p></div>
+						<div class=""><i class="fa fa-cube fa_width_15 theme-color-font" style=""></i></div>
+						<div class="media-content"><p class="is-4"><router-link :to="'/block/'+block.bn">#{{block.bn}}</router-link></p></div>
 						<div class="media-content"><p class="is-6"><a href="#">&nbsp;{{block.txns}} txns</a></p></div>
 						<div class="media-content"><p class="is-4">&nbsp;SBP: <a href="#">{{block.sbp}}</a></p> </div>
 						<div class="media-right"><p class="is-6 text-secondary">&nbsp;{{block.date}}</p> </div>
@@ -99,9 +99,9 @@
   <div class="column" style="padding-right: 0rem;">
     <div class="" style="background: white;">
       <div class="card-div">
-      <i class="fa fa-server fa_width_20 color-grey-100"></i>
-      <h5 class="ml-10 lh-220 color-grey-100"><span>转账</span></h5>
-	  <a class="button is-primary is-outlined" style="border-radius: 0.15rem;margin-left: auto !important;font-size: 14px;">查看全部</a>
+      <i class="fa fa-server fa_width_20 theme-color-font"></i>
+      <h5 class="ml-10 lh-220 theme-color-font"><span>转账</span></h5>
+    <router-link class="button theme-color is-outlined" style="border-radius: 0.15rem;margin-left: auto !important;font-size: 14px;" to="/txs">查看全部</router-link>
       </div>
     </div>
 	<div class="list-group">
@@ -109,7 +109,7 @@
         	<div v-for="(txObj, index) in txnsData" class="row">
 				<div class="card" style="width: 100%;"><div class="card-content">
 					<div class="media">
-						<div class=""><i class="fa fa-bars fa_width_15" style="color: #00d1b2;"></i></div>
+						<div class=""><i class="fa fa-bars fa_width_15 theme-color-font" style=""></i></div>
 						<div class="media-content"><p class="is-4"><a href="#">TX#{{txObj.hash}}</a></p></div>
 						<div class="media-content"><p class="is-6">&nbsp;from:<a href="#">{{txObj.from}}</a></p></div>
 						<div class="media-content"><p class="is-4">&nbsp;to:<a href="#">{{txObj.to}}</a></p> </div>

@@ -1,5 +1,6 @@
 import home from '@/components/Home'
 import blocks from '@/components/Blocks'
+import block from '@/components/Block'
 import transactions from '@/components/Transactions'
 import tokens from '@/components/Tokens'
 import sbps from '@/components/SBPList'
@@ -34,7 +35,14 @@ export default [
     }
   },
   {
-    path: '/transactions',
+    path: '/block/:id',
+    component: block,
+    meta:{
+        title:'Block'
+    }
+  },
+  {
+    path: '/txs',
     component: transactions,
     meta:{
         title:'Transactions'
