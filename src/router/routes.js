@@ -5,6 +5,7 @@ import transactions from '@/components/Transactions'
 import tokens from '@/components/Tokens'
 import sbps from '@/components/SBPList'
 import accounts from '@/components/Accounts'
+import address from '@/components/Address'
 //import showblog from '@/components/ShowBlog'
 //import aboutus from '@/components/AboutUs'
 //import contact from '@/components/Contact'
@@ -67,6 +68,13 @@ export default [
     component: accounts,
     meta:{
         title:'Top Accounts'
+    }
+  },
+  {
+    path: '/address/:address',
+    component: address,
+    meta:{
+        title:'Address'
     }
   },
 //  {

@@ -110,7 +110,7 @@
     <hr class="navbar-divider theme-color-footer-hr hrshow">
     <div class="columns is-vcentered">
         <div class="column is-4"><p class=" has-text-grey-light">Copyright© 2019 vitescan.io</p></div> 
-		<div class="column is-8 leftright" style=""><p class="has-text-grey-light">Donations: vite_8733f9bfd23022b433c9191704d4ceaae5578b4d1aba12345b</p></div>
+		<div class="column is-8 leftright faddr" style=""><router-link to="/address/vite_xxxx" style="">Donations: vite_8733f9bfd23022b433c9191704d4ceaae5578b4d1aba12345b</router-link></div>
 	</div>
   </div>
   
@@ -141,6 +141,10 @@
 </script>
 
 <style>
+
+.faddr a{
+  color: #b5b5b5!important;
+}
 .bd-footer-links {
     margin-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -172,5 +176,8 @@ background-color: #3273dc;
 background-repeat: no-repeat;
 background-attachment: fixed;
 transition: .5s linear;
+}
+.faddr a:hover {
+    color: #3273dc;
 }
 </style>
