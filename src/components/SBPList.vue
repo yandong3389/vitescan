@@ -6,7 +6,8 @@
   <div class="bd-header-titles" >
     <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">SBP List</h1>
     <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Cryptocurrency mining is the validation of transactions on the blockchain. Once validated, these transactions are added to the blockchain's public ledger of past transactions.
-For this effort, successful miners receive new cryptocurrency as a reward.</p>
+<!-- For this effort, successful miners receive new cryptocurrency as a reward. -->
+</p>
   </div>
 </header>
 <div class="table-pdiv" style="margin-bottom: 1rem;">
@@ -15,18 +16,18 @@ For this effort, successful miners receive new cryptocurrency as a reward.</p>
         <table class="table" style="width: 100%;border: solid 1px #dbdbdb;">
         <thead>
             <tr>
-            <th>Block Number</th>
-            <th>Txns</th>
-            <th>SBP</th>
-            <th>Date</th>
+            <th style="padding-left: 3rem;">Ranking</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th style="padding-right: 3rem;text-align: right;">Votes</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="data in blocksData">
-            <td><a href="#">#{{data.bn}}</a></td>
-            <td><a href="#">{{data.txns}} txns</a></td>
-            <td><a href="#">{{data.sbp}}</a></td>
-            <td>{{data.date }}</td>
+            <tr v-for="data in nodeListData">
+            <td style="padding-left: 3rem;">#{{data.ranking}}</td>
+            <td><a href="#">{{data.name}}</a></td>
+            <td><a href="#">{{data.nodeAddr}}</a></td>
+            <td style="padding-right: 3rem;text-align: right;">{{data.voteNum|fomatNumber18(18,0)|fomatNumber3}}</td>
             </tr>
         </tbody>
         </table>
@@ -34,7 +35,7 @@ For this effort, successful miners receive new cryptocurrency as a reward.</p>
     <div>
     </div>
 
-  
+  <!-- 
 	<paginate
 	    :page-count="20"
 	    :page-range="3"
@@ -48,34 +49,22 @@ For this effort, successful miners receive new cryptocurrency as a reward.</p>
 
       <li ><a tabindex="0">Next</a></li>
 	  </paginate>
-
+-->
       </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
-  
+  // import NProgress from 'nprogress'
   export default {
     data: function() {
       return {
-        blocksData:[
-        {bn:14564, txns:123, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14563, txns:12, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14562, txns:33, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14561, txns:119, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14560, txns:13, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14559, txns:23, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14558, txns:993, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14557, txns:45, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14556, txns:553, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14555, txns:857, sbp:'N4Y', date:'1 mins 6 secs ago'}
-        ],
-        txnsData:[]
+        nodeListData:[]
       }
     },
     created() {
-        // this.timer = setInterval(this.loadData, 1000)
+        this.loadData();
     },
     beforeDestroy () {
         // clearInterval(this.timer)
@@ -85,18 +74,18 @@ For this effort, successful miners receive new cryptocurrency as a reward.</p>
 	      console.log(pageNum)
 	    },
         loadData:function(){
-
+            // NProgress.start();
             const self = this;
-            this.url = "http://39.100.79.183:8888/index/blockData";
+            this.url = "http://localhost/nodeList";
 
             this.$axios({
                     method: 'get',
                     url:this.url
             }).then(function(response) {
-                console.log(response)
-                self.last = response.data.data.result.current;
+                self.nodeListData = response.data.data;
+                // NProgress.done();
             }).catch( function(response) {
-                console.log(response)
+                // NProgress.done();
             });
 
         }

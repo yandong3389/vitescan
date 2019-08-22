@@ -105,7 +105,7 @@
                 
               </span>
             </router-link>
-
+          <!--
             <router-link class="navbar-item " to="/transactions">
               <span>
                 <span class="icon theme-color-font"><i class="fa fa-server"></i></span>
@@ -114,6 +114,7 @@
                 
               </span>
             </router-link>
+            -->
             <hr class="navbar-divider">
             <router-link class="navbar-item " to="/blocks">
               <span>
@@ -160,6 +161,7 @@
           <span>SBP</span>
         </router-link>
 
+<!--
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" href="#">
           <span class="icon theme-color-font"><i class="fas fa-gamepad"></i></span>
@@ -215,8 +217,8 @@
         </div>
       </div>
       
+  -->
     </div>
-
 
      <div class="navbar-end logoShow" >
        <!--

@@ -29,7 +29,7 @@
             </tr>
             <tr>
               <th style="">Transfers：</th>
-              <td>39182(<i class="fa fa-arrow-down text-success"></i>25369<i class="fa fa-arrow-up  text-danger"></i>13813 )</td>
+              <td>39182（转入<i class="fa fa-arrow-down text-success"></i>25369 转出<i class="fa fa-arrow-up  text-danger"></i>13813 )</td>
             </tr>
             <tr>
               <th style="">Quota：</th>
@@ -58,6 +58,7 @@
     <li><a>Unreceived Transactions</a></li>
     <li><a>Snapshot Block List</a></li>
     <li><a>Voters</a></li>
+    <li><a>Contract</a></li>
   </ul>
 </div>
 

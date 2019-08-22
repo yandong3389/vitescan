@@ -22,10 +22,10 @@
         </thead>
         <tbody>
             <tr v-for="data in blocksData">
-            <td><a href="#">#{{data.bn}}</a></td>
-            <td><a href="#">{{data.txns}} txns</a></td>
-            <td><a href="#">{{data.sbp}}</a></td>
-            <td>{{data.date }}</td>
+            <td><a href="#">#{{data.height}}</a></td>
+            <td><a href="#">{{data.txCount}} txns</a></td>
+            <td><a href="#">{{data.nodeName}}</a></td>
+            <td>{{data.timestamp|fomatTime }}</td>
             </tr>
         </tbody>
         </table>
@@ -35,7 +35,7 @@
 
   
 	<paginate
-	    :page-count="20"
+	    :page-count="pageCount"
 	    :page-range="3"
 	    :margin-pages="2"
 	    :click-handler="clickCallback"
@@ -54,48 +54,41 @@
 
 <script>
   import axios from 'axios';
-  
+  import NProgress from 'nprogress'
+// import 'nprogress/nprogress.css'
   export default {
     data: function() {
       return {
-        blocksData:[
-        {bn:14564, txns:123, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14563, txns:12, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14562, txns:33, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14561, txns:119, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14560, txns:13, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14559, txns:23, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14558, txns:993, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14557, txns:45, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14556, txns:553, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14555, txns:857, sbp:'N4Y', date:'1 mins 6 secs ago'}
-        ],
-        txnsData:[]
+        blocksData:[],
+        txnsData:[],
+        pageCount:10
       }
     },
     created() {
-        // this.timer = setInterval(this.loadData, 1000)
+        this.loadData(1);
     },
     beforeDestroy () {
         // clearInterval(this.timer)
     },
     methods: {
 	    clickCallback:function(pageNum){
-	      console.log(pageNum)
+        this.loadData(pageNum);
 	    },
-        loadData:function(){
-
+        loadData:function(pageNum){
+            NProgress.start();
             const self = this;
-            this.url = "http://39.100.79.183:8888/index/blockData";
+            this.url = "http://localhost/blocks?pageNo=" + pageNum;
 
             this.$axios({
                     method: 'get',
                     url:this.url
             }).then(function(response) {
-                console.log(response)
-                self.last = response.data.data.result.current;
+                NProgress.done();
+                self.blocksData = response.data.data.snapBlockList;
+                self.total = response.data.data.total;
+                self.pageCount = response.data.data.pageCount;
             }).catch( function(response) {
-                console.log(response)
+                NProgress.done();
             });
 
         }

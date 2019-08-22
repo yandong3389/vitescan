@@ -19,6 +19,9 @@
         <p class="bd-footer-link">
           <a href="#">意见反馈</a>
         </p>
+        <p class="bd-footer-link">
+          <a href="#">微信群</a>
+        </p>
       <!--
       <p class="bd-footer-link bd-is-more">
         <a href="#">View all posts</a>
@@ -75,7 +78,7 @@
 		    <span class="bd-footer-link-icon has-text-success">
 		      <i class="fas fa-rocket"></i>
 		    </span>
-		    <strong>ViteX去中心化交易所（DEX）</strong>
+		    <strong>ViteX去中心化交易所（DEX）手续费9折邀请码：1918500189</strong>
 		    <em>https://x.vite.net</em>
 		  </a>
 		</p>
