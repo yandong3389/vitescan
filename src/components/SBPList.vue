@@ -18,16 +18,16 @@
             <tr>
             <th style="padding-left: 3rem;">Ranking</th>
             <th>Name</th>
+            <th style="">Votes</th>
             <th>Address</th>
-            <th style="padding-right: 3rem;text-align: right;">Votes</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="data in nodeListData">
             <td style="padding-left: 3rem;">#{{data.ranking}}</td>
             <td><a href="#">{{data.name}}</a></td>
+            <td style="">{{data.voteNum|fomatNumber18(18,0)|fomatNumber3}}</td>
             <td><a href="#">{{data.nodeAddr}}</a></td>
-            <td style="padding-right: 3rem;text-align: right;">{{data.voteNum|fomatNumber18(18,0)|fomatNumber3}}</td>
             </tr>
         </tbody>
         </table>

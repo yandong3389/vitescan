@@ -96,11 +96,13 @@ router.afterEach(transition => {
 
 
 //时间显示问题（几天前、几分钟前）
-Vue.filter('fomatTime', function (valueTime) {
+Vue.filter('fomatTime', function (valueTime,diffTime) {
+
+  var newData =  Date.parse(new Date());
+  // var diffTime = Math.abs(newData-valueTime);
 
   if(valueTime){
-    var newData =  Date.parse(new Date());
-    var diffTime = Math.abs(newData-valueTime);
+
     if (diffTime > 7 * 24 * 3600 * 1000) {
       var date = new Date(valueTime);
       var y = date.getFullYear();
@@ -114,7 +116,7 @@ Vue.filter('fomatTime', function (valueTime) {
       var second = date.getSeconds();
       minute = minute < 10 ? ('1' + minute) : minute;
       second = second < 10 ? ('0' + second) : second;
-      return  m + '-' + d+' '+h+':'+minute;
+      return  m + '-' + d+' '+h+':'+minute+":"+second;
 
     } else if (diffTime < 7 * 24 * 3600 * 1000 && diffTime > 24 * 3600 * 1000) {
       // //注释("一周之内");
@@ -141,7 +143,6 @@ Vue.filter('fomatTime', function (valueTime) {
       var dayNum = Math.round(diffTime / 1000);
       // dayNum = dayNum+1;
       return dayNum + " 秒前";
-
     }
   }
 });

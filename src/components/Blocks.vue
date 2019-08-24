@@ -5,7 +5,7 @@
 <header class="bd-header" style="margin-bottom: 0rem;">
   <div class="bd-header-titles" >
     <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Blocks</h1>
-    <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Block #8355250 to #8355274 (Total of 8,355,275 blocks)</p>
+    <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;"></p>
   </div>
 </header>
 <div class="table-pdiv" style="margin-bottom: 1rem;">
@@ -22,7 +22,7 @@
         </thead>
         <tbody>
             <tr v-for="data in blocksData">
-            <td><a href="#">#{{data.height}}</a></td>
+            <td><router-link :to="'/block/'+data.height">#{{data.height}}</router-link></td>
             <td><a href="#">{{data.txCount}} txns</a></td>
             <td><a href="#">{{data.nodeName}}</a></td>
             <td>{{data.timestamp|fomatTime }}</td>

@@ -88,7 +88,7 @@
 						<div class="media-content"><p><router-link :to="'/block/'+block.height">#{{block.height}}</router-link></p></div>
 						<div class="media-content"><p><a href="#">&nbsp;{{block.txCount}} txns</a></p></div>
 						<div class="media-content" style="max-width: 180px;"><p>&nbsp;SBP: <a href="#">{{block.nodeName}}</a></p> </div>
-						<div class="media-right"><p class="text-secondary">&nbsp;{{block.timestamp|fomatTime}}</p> </div>
+						<div class="media-right"><p class="text-secondary">&nbsp;{{block.timestamp|fomatTime(block.diffTime)}}</p> </div>
 					</div>
 				</div></div>
 			</div>
@@ -185,14 +185,12 @@ import options from '../chart-options/options'
             this.$axios({
                     method: 'get',
                     url:this.url
-            }).then(function(response) {
-                console.log(response)              
+            }).then(function(response) {      
                 self.blocksData = response.data.data.snapshotBlockInfos;
                 self.indexData = response.data.data;
-                // console.log(self.blocksData);
 
             }).catch( function(response) {
-                console.log(response)
+
             });
 
         }
