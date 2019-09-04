@@ -25,7 +25,7 @@
             <td><router-link :to="'/block/'+data.height">#{{data.height}}</router-link></td>
             <td><a href="#">{{data.txCount}} txns</a></td>
             <td><a href="#">{{data.nodeName}}</a></td>
-            <td>{{data.timestamp|fomatTime }}</td>
+            <td>{{data.timestamp|fomatTime(data.diffTime)}}</td>
             </tr>
         </tbody>
         </table>

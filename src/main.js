@@ -175,3 +175,38 @@ Vue.filter('fomatNumber3', function(num) {
 Vue.filter('fomatNumber18', function(num, x, digits) {
   return parseFloat((num/Math.round(Math.pow(10,x))).toFixed(digits));
 });
+Vue.filter('subHashStr', function(hash) {
+
+  var str1 = hash.substring(0,3);
+  var str2 = "...";
+  var str3 = hash.substring(hash.length-3, hash.length);
+
+  return str1 + str2 + str3;
+});
+Vue.filter('subAddrStr', function(addr) {
+
+  var str1 = addr.substring(0,5);
+  var str2 = "...";
+  var str3 = addr.substring(addr.length-5, addr.length);
+
+  return str1 + str2 + str3;
+});
+Vue.filter('subAddrStr', function(addr) {
+
+  var str1 = addr.substring(0,5);
+  var str2 = "...";
+  var str3 = addr.substring(addr.length-6, addr.length);
+
+  return str1 + str2 + str3;
+});
+Vue.filter('blockTypeStr', function(blockType){
+    if (blockType == 1
+       || blockType == 2
+       || blockType == 3
+       || blockType == 6) {
+        return "-";
+    } else {
+        return "+";
+    }
+
+});

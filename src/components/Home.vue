@@ -13,10 +13,10 @@
     <div><p class="heading">当前/峰值TPS</p><p class="title">{{indexData.sysTps}}/{{indexData.sysTpsMax}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">过去24小时交易量</p><p class="title">{{indexData.last24HTxAmount|fomatNumber(2)}}</p></div>
+    <div><p class="heading">过去24小时交易量</p><p class="title">{{indexData.last24HTxAmount|fomatNumber3}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">总地址数</p><p class="title">{{indexData.addressTotal|fomatNumber(2)}}</p></div>
+    <div><p class="heading">总地址数</p><p class="title">{{indexData.addressTotal|fomatNumber3}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
     <div><p class="heading">当前总发行量</p><p class="title">{{indexData.viteTokenTotal|fomatNumber3}}</p></div>
@@ -110,10 +110,12 @@
 				<div class="card" style="width: 100%;"><div class="card-content">
 					<div class="media">
 						<div class=""><i class="fa fa-bars fa_width_15 theme-color-font" style=""></i></div>
-						<div class="media-content"><p class="is-4"><a href="#">TX#{{txObj.hash}}</a></p></div>
-						<div class="media-content"><p class="is-6">&nbsp;from:<a href="#">{{txObj.from}}</a></p></div>
-						<div class="media-content"><p class="is-4">&nbsp;to:<a href="#">{{txObj.to}}</a></p> </div>
-						<div class="media-right"><p class="is-6 text-secondary">&nbsp;{{txObj.qty}}</p> </div>
+						<div class="media-content"><p class="is-4"><router-link :to="'/tx/'+txObj.hash">TX#{{txObj.hash|subHashStr}}</router-link></p></div>
+						<div class="media-content"><p class="is-6">&nbsp;from:<router-link :to="'/address/'+txObj.fromAddress">{{txObj.fromAddress|subAddrStr}}</router-link></p></div>
+						<div class="media-content"><p class="is-4">&nbsp;to:<router-link :to="'/address/'+txObj.toAddress">{{txObj.toAddress|subAddrStr}}</router-link></p> </div>
+						<div class="media-right" style="min-width: 70px;">
+              <p style="text-align: right;" class="is-6" :class="{'text-color-add':txObj.blockTypeFlag==0, 'text-color-sub':txObj.blockTypeFlag==1}">{{txObj.blockType|blockTypeStr}}&nbsp;{{txObj.amount|fomatNumber18(txObj.decimals,2)}} {{txObj.tokenSymbol}}</p>
+            </div>
 					</div>
 				</div></div>
 			</div>
@@ -151,18 +153,7 @@ import options from '../chart-options/options'
         indexData:{},
         blocksData:[],
         startVal:0,
-        txnsData:[
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'},
-        {hash:'064...ef9', from:'vite_810...83de6', to:'vite_...a467b', qty:'999 VITE'}
-        ]
+        txnsData:[]
       }
     },
   components: {
@@ -187,6 +178,7 @@ import options from '../chart-options/options'
                     url:this.url
             }).then(function(response) {      
                 self.blocksData = response.data.data.snapshotBlockInfos;
+                self.txnsData = response.data.data.accountBlockInfos;
                 self.indexData = response.data.data;
 
             }).catch( function(response) {
@@ -284,5 +276,15 @@ h5 {
 .card-body {
     flex: 1 1 auto;
     padding: 1.25rem;
+}
+.text-color-sub{
+      color: rgb(230, 126, 34)!important;
+    font-size: 90%;
+    font-weight: 400;
+}
+.text-color-add{
+      color: rgb(92, 184, 92)!important;
+    font-size: 90%;
+    font-weight: 400;
 }
 </style>
