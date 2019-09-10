@@ -34,7 +34,7 @@
             <td>{{data.tokenName}}</td>
             <td>{{data.decimals}}</td>
             <td>{{data.tokenSupply|fomatNumber18(data.decimals,4)}}</td>
-            <td><a href="#">{{data.owner}}</a></td>
+            <td><router-link :to="'/address/'+data.owner">{{data.owner|subAddrStr(8)}}</router-link></td>
             <!-- 
             <td>{{data.isReissuable}}</td>
             <td>{{data.maxSupply|fomatNumber18}}</td>

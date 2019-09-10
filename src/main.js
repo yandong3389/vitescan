@@ -61,37 +61,7 @@ Vue.filter('randomNumber', function(value) {
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  i18n,
-  components: { App },
-  template: '<App/>'
-})
 
-
-router.beforeEach((to, from, next) => {
-    NProgress.start();
-
-  /* 路由发生变化修改页面title */
-  if (to.meta.title) {
-    document.title = to.meta.title + ' - ViteScan';
-  }else{
-    document.title = "这里可以给默认标题";
- }
-  
-  // 百度统计
-  if (to.path) {
-      _hmt.push(['_trackPageview', to.fullPath]);
-  }
-  
-    next();
-})
-
-router.afterEach(transition => {
-    NProgress.done();
-})
 
 
 
@@ -175,28 +145,15 @@ Vue.filter('fomatNumber3', function(num) {
 Vue.filter('fomatNumber18', function(num, x, digits) {
   return parseFloat((num/Math.round(Math.pow(10,x))).toFixed(digits));
 });
-Vue.filter('subHashStr', function(hash) {
+Vue.filter('subAddrStr', function(addr, num) {
 
-  var str1 = hash.substring(0,3);
+  let count = 6;
+  if (num != null && num != undefined) {
+    count = num;
+  }
+  var str1 = addr.substring(0,count);
   var str2 = "...";
-  var str3 = hash.substring(hash.length-3, hash.length);
-
-  return str1 + str2 + str3;
-});
-Vue.filter('subAddrStr', function(addr) {
-
-  var str1 = addr.substring(0,5);
-  var str2 = "...";
-  var str3 = addr.substring(addr.length-5, addr.length);
-
-  return str1 + str2 + str3;
-});
-Vue.filter('subAddrStr', function(addr) {
-
-  var str1 = addr.substring(0,5);
-  var str2 = "...";
-  var str3 = addr.substring(addr.length-6, addr.length);
-
+  var str3 = addr.substring(addr.length-count, addr.length);
   return str1 + str2 + str3;
 });
 Vue.filter('blockTypeStr', function(blockType){
@@ -210,3 +167,36 @@ Vue.filter('blockTypeStr', function(blockType){
     }
 
 });
+
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  i18n,
+  components: { App },
+  template: '<App/>'
+})
+
+
+router.beforeEach((to, from, next) => {
+    NProgress.start();
+
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title + ' - ViteScan';
+  }else{
+    document.title = "这里可以给默认标题";
+ }
+  
+  // 百度统计
+  if (to.path) {
+      _hmt.push(['_trackPageview', to.fullPath]);
+  }
+  
+    next();
+})
+
+router.afterEach(transition => {
+    NProgress.done();
+})

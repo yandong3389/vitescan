@@ -16,8 +16,13 @@ export default {
       type: Object
     }
   },
+  watch: {
+    option () {
+         HighCharts.chart(this.id,this.option);
+    }
+  },
   mounted() {
-    HighCharts.chart(this.id,this.option)
+        // HighCharts.chart(this.id,this.option)
   }
 }
 </script>
@@ -26,4 +31,4 @@ export default {
 min-width: 255px; 
 height: 200px;
 }
->/style>
+</style>

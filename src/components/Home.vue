@@ -34,10 +34,10 @@
     <div><p class="heading">Token数量</p><p class="title">{{indexData.TokenAmount}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">价格</p><p class="title">{{indexData.VitePrice}}</p></div>
+    <div><p class="heading">价格</p><p class="title">{{indexData.VitePrice}}<span style="font-size: 14px;color: rgba(0,0,0,.45);"> USD</span></p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">市值排名</p><p class="title">{{indexData.ViteRank}}</p></div>
+    <div><p class="heading">市值排名</p><p class="title">No.{{indexData.ViteRank}}</p></div>
   </div>
 </div>
 </section>
@@ -57,7 +57,7 @@
 
   <div class="column" style="padding-right: 0rem;">
     <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
-    	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150 theme-color-font"><span>14 days Address Growth</span></h5></div>
+    	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150 theme-color-font"><span>14 days Active Account</span></h5></div>
     	<div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
     	  <div id="container" style="min-width: 255px; height: 200px;">
     	      <x-chart :id="id2" :option="option2"></x-chart>
@@ -110,9 +110,9 @@
 				<div class="card" style="width: 100%;"><div class="card-content">
 					<div class="media">
 						<div class=""><i class="fa fa-bars fa_width_15 theme-color-font" style=""></i></div>
-						<div class="media-content"><p class="is-4"><router-link :to="'/tx/'+txObj.hash">TX#{{txObj.hash|subHashStr}}</router-link></p></div>
-						<div class="media-content"><p class="is-6">&nbsp;from:<router-link :to="'/address/'+txObj.fromAddress">{{txObj.fromAddress|subAddrStr}}</router-link></p></div>
-						<div class="media-content"><p class="is-4">&nbsp;to:<router-link :to="'/address/'+txObj.toAddress">{{txObj.toAddress|subAddrStr}}</router-link></p> </div>
+						<div class="media-content"><p class="is-4"><router-link :to="'/tx/'+txObj.hash">TX#{{txObj.hash|subAddrStr(3)}}</router-link></p></div>
+						<div class="media-content"><p class="is-6">&nbsp;from:<router-link :to="'/address/'+txObj.fromAddress">{{txObj.fromAddress|subAddrStr(6)}}</router-link></p></div>
+						<div class="media-content"><p class="is-4">&nbsp;to:<router-link :to="'/address/'+txObj.toAddress">{{txObj.toAddress|subAddrStr(6)}}</router-link></p> </div>
 						<div class="media-right" style="min-width: 70px;">
               <p style="text-align: right;" class="is-6" :class="{'text-color-add':txObj.blockTypeFlag==0, 'text-color-sub':txObj.blockTypeFlag==1}">{{txObj.blockType|blockTypeStr}}&nbsp;{{txObj.amount|fomatNumber18(txObj.decimals,2)}} {{txObj.tokenSymbol}}</p>
             </div>
@@ -135,32 +135,39 @@
 <script>
   import axios from 'axios';
   import logo from './../assets/logo-white.png';
+  import blogo from './../assets/logo-black.png';
   import countTo from 'vue-count-to';
   // 导入chart组件
 import XChart from './chart.vue'
 // 导入chart组件模拟数据
 import options from '../chart-options/options'
-  
+import HighCharts from 'highcharts'
+
   export default {
 
     data: function() {
     let option = options.bar
       return {
         'logo': logo,
+        'blogo':blogo,
         last:'-',
-        id:'test', option: option,
-        id2:'test2', option2: option,
+        id:'test', 
+        option: option,
+        id2:'test2',
+        option2: option,
         indexData:{},
         blocksData:[],
         startVal:0,
-        txnsData:[]
+        txnsData:[],
+        charInit1:false,
+        charInit2:false
       }
     },
   components: {
     XChart,countTo
   },
     created() {
-      this.loadData();
+        this.loadData();
         this.timer = setInterval(this.loadData, 1300);
     },
     beforeDestroy () {
@@ -180,6 +187,23 @@ import options from '../chart-options/options'
                 self.blocksData = response.data.data.snapshotBlockInfos;
                 self.txnsData = response.data.data.accountBlockInfos;
                 self.indexData = response.data.data;
+
+                self.option.xAxis.categories = response.data.data.cateArr;
+                self.option.series[0].data = response.data.data.valArr;
+                // self.option = options.bar;
+                if (!self.charInit1) {
+                  HighCharts.chart(self.id,self.option);
+                  self.charInit1 = true;
+                }
+
+                self.option2.xAxis.categories = response.data.data.cateArr2;
+                self.option2.series[0].data = response.data.data.valArr2;
+                self.option2.series[0].name = "活跃地址数";
+                // self.option2 = options.bar;
+                if (!self.charInit2) {
+                  HighCharts.chart(self.id2,self.option2);
+                  self.charInit2 = true;
+                }
 
             }).catch( function(response) {
 

@@ -6,7 +6,7 @@
 	<div class="container">
 	<div class="navbar-brand">
 	<router-link class="navbar-item" to="/">
-      <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, &amp; modern CSS framework based on Flexbox" width="112" height="28">
+      <img v-bind:src="companyLogo" alt="ViteScan.io" width="112" height="28">
     </router-link>
 	 </div>
 	 

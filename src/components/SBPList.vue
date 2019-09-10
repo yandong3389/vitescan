@@ -24,10 +24,10 @@
         </thead>
         <tbody>
             <tr v-for="data in nodeListData">
-            <td style="padding-left: 3rem;">#{{data.ranking}}</td>
+            <td style="padding-left: 3rem;width: 6rem;"><span class="ranking-span" :class="{'top25class':data.ranking<=25, 'nottop25class':data.ranking>25}">{{data.ranking}}</span></td>
             <td><a href="#">{{data.name}}</a></td>
-            <td style="">{{data.voteNum|fomatNumber18(18,0)|fomatNumber3}}</td>
-            <td><a href="#">{{data.nodeAddr}}</a></td>
+            <td>{{data.voteNum|fomatNumber18(18,0)|fomatNumber3}}</td>
+            <td><router-link :to="'/address/'+data.nodeAddr">{{data.nodeAddr|subAddrStr(8)}}</router-link></td>
             </tr>
         </tbody>
         </table>
@@ -102,6 +102,21 @@
     overflow-x: auto;
     overflow-y:hidden;
 }
-
+}
+.top25class{
+  background: rgba(68,197,142,.1);
+    color: #44c58e;
+}
+.nottop25class{
+    background: rgba(255,149,0,.1);
+    color: #ff9500;
+}
+.ranking-span{
+      display: inline-block;
+    text-align: center;
+    min-width: 30px;
+    margin-right: 5px;
+    border-radius: 12px;
+    font-weight: 500;
 }
 </style>
