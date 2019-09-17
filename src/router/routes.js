@@ -2,6 +2,7 @@ import home from '@/components/Home'
 import blocks from '@/components/Blocks'
 import block from '@/components/Block'
 import transactions from '@/components/Transactions'
+import transaction from '@/components/Transaction'
 import tokens from '@/components/Tokens'
 import sbps from '@/components/SBPList'
 import accounts from '@/components/Accounts'
@@ -36,7 +37,7 @@ export default [
     }
   },
   {
-    path: '/block/:id',
+    path: '/block/:height',
     component: block,
     meta:{
         title:'Block'
@@ -47,6 +48,13 @@ export default [
     component: transactions,
     meta:{
         title:'Transactions'
+    }
+  },
+  {
+    path: '/tx/:hash',
+    component: transaction,
+    meta:{
+        title:'Transaction'
     }
   },
   {

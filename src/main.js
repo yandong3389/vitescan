@@ -116,6 +116,48 @@ Vue.filter('fomatTime', function (valueTime,diffTime) {
     }
   }
 });
+Vue.filter('fomatDate', function (valueTime) {
+
+  var newData =  Date.parse(new Date());
+  // var diffTime = Math.abs(newData-valueTime);
+
+  if(valueTime){
+      var date = new Date(valueTime);
+      var y = date.getFullYear();
+      var m = date.getMonth() + 1;
+      m = m < 10 ? ('0' + m) : m;
+      var d = date.getDate();
+      d = d < 10 ? ('0' + d) : d;
+      var h = date.getHours();
+      h = h < 10 ? ('0' + h) : h;
+      var minute = date.getMinutes();
+      var second = date.getSeconds();
+      minute = minute < 10 ? ('1' + minute) : minute;
+      second = second < 10 ? ('0' + second) : second;
+      return  y + '-' + m + '-' + d+' '+h+':'+minute+":"+second;
+  }
+});
+Vue.filter('fomatBlockType', function (blockType) {
+
+  var newData =  Date.parse(new Date());
+  // var diffTime = Math.abs(newData-valueTime);
+
+  if(blockType == 1){
+      return  'Contract Creation | open';
+  } else if (blockType == 2) {
+      return 'Send | open';
+  } else if (blockType == 3) {
+    return 'Reward | open';
+  } else if (blockType == 4) {
+    return 'Receive | close';
+  } else if (blockType == 5) {
+    return 'Receive Err | close';
+  } else if (blockType == 6) {
+    return 'Revert | open';
+  } else if (blockType == 7) {
+    return 'Genesis | close';
+  }
+});
 
 Vue.filter('fomatNumber', function(num, digits) {
   const si = [

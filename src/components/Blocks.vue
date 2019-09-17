@@ -61,7 +61,7 @@
       return {
         blocksData:[],
         txnsData:[],
-        pageCount:10
+        pageCount:1
       }
     },
     created() {

@@ -389,7 +389,7 @@
     margin-right: -4px;
 }
 .search-input.theme-color-font:focus{
-border: 1px solid #6c757e;
+border: 1px solid #3273dc;
 }
 .search-item {
 align-items: stretch;

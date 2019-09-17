@@ -4,7 +4,7 @@
 
 <header class="bd-header" style="margin-bottom: 0rem;">
   <div class="bd-header-titles" >
-    <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Snapshot Block Details</h1>
+    <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Transaction Details</h1>
     <!--<p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">#8355250</p>-->
   </div>
 </header>
@@ -20,35 +20,51 @@
         <table class="table is-striped" style="width: 100%;">
         <tbody>
             <tr>
-              <th width="200">Status：</th>
-              <td><span class="success-span"><span>CONFIRMED</span></span></td>
+              <th width="200">Transaction Hash：</th>
+              <td><span class="success-span"><span></span></span></td>
             </tr>
             <tr>
-              <th width="200">Snapshot Block Height：</th>
+              <th width="200">Response Transaction Hash：</th>
               <td>{{blockData.height}}</td>
             </tr>
             <tr>
-              <th style="">Snapshot Block Hash：</th>
+              <th style="">Transaction Type：</th>
               <td>{{blockData.hash}}</td>
             </tr>
             <tr>
-              <th style="">Snapshot Block Age：</th>
+              <th style="">Transaction Status：</th>
+              <td>{{blockData.hash}}</td>
+            </tr>
+            <tr>
+              <th style="">Confirmations：</th>
+              <td>{{blockData.hash}}</td>
+            </tr>
+            <tr>
+              <th style="">Firstly Snapshotted By：</th>
+              <td>{{blockData.hash}}</td>
+            </tr>
+            <tr>
+              <th style="">Age：</th>
               <td>{{blockData.timestamp|fomatTime(blockData.diffTime)}}（{{blockData.timestamp|fomatDate}}）</td>
             </tr>
             <tr>
-              <th style="">Snapshot Accounts：</th>
+              <th style="">From：</th>
               <td>{{blockData.accountCount}}</td>
             </tr>
             <tr>
-              <th style="">Snapshot Transactions：</th>
+              <th style="">To：</th>
               <td>{{blockData.txCount}}</td>
             </tr>
             <tr>
-              <th style="">Block Creation Node：</th>
+              <th style="">Token：</th>
               <td><a href="#">{{blockData.nodeName}}</a></td>
             </tr>
             <tr>
-              <th style="">Block Creation Address：</th>
+              <th style="">Quantity：</th>
+              <td><a href="#">{{blockData.nodeAddr}}</a></td>
+            </tr>
+            <tr>
+              <th style="">Input Data：</th>
               <td><a href="#">{{blockData.nodeAddr}}</a></td>
             </tr>
         </tbody>
