@@ -86,7 +86,7 @@
 					<div class="media">
 						<div class=""><i class="fa fa-cube fa_width_15 theme-color-font" style=""></i></div>
 						<div class="media-content"><p><router-link :to="'/block/'+block.height">#{{block.height}}</router-link></p></div>
-						<div class="media-content"><p><a href="#">&nbsp;{{block.txCount}} txns</a></p></div>
+						<div class="media-content"><p><router-link :to="'/block/'+block.height">&nbsp;{{block.txCount}} txns</router-link></p></div>
 						<div class="media-content" style="max-width: 180px;"><p>&nbsp;SBP: <a href="#">{{block.nodeName}}</a></p> </div>
 						<div class="media-right"><p class="text-secondary">&nbsp;{{block.timestamp|fomatTime(block.diffTime)}}</p> </div>
 					</div>
