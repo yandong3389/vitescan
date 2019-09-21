@@ -143,19 +143,19 @@ Vue.filter('fomatBlockType', function (blockType) {
   // var diffTime = Math.abs(newData-valueTime);
 
   if(blockType == 1){
-      return  'Contract Creation | open';
+      return  'Contract Creation';
   } else if (blockType == 2) {
-      return 'Send | open';
+      return 'Send';
   } else if (blockType == 3) {
-    return 'Reward | open';
+    return 'Reward';
   } else if (blockType == 4) {
-    return 'Receive | close';
+    return 'Receive';
   } else if (blockType == 5) {
-    return 'Receive Err | close';
+    return 'Receive Err';
   } else if (blockType == 6) {
-    return 'Revert | open';
+    return 'Revert';
   } else if (blockType == 7) {
-    return 'Genesis | close';
+    return 'Genesis';
   }
 });
 

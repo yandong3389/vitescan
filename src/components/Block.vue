@@ -49,7 +49,7 @@
             </tr>
             <tr>
               <th style="">Block Creation Address：</th>
-              <td><a href="#">{{blockData.nodeAddr}}</a></td>
+              <td><router-link :to="'/address/' + blockData.nodeAddr">{{blockData.nodeAddr}}</router-link></td>
             </tr>
         </tbody>
         </table>
@@ -81,7 +81,7 @@
         </thead>
         <tbody>
             <tr v-for="data in txnsData">
-            <td><a href="#">{{data.hash|subAddrStr(5)}}</a></td>
+            <td><router-link :to="'/tx/'+data.hash">{{data.hash|subAddrStr(5)}}</router-link></td>
             <td>{{data.tokenSymbol}}</td>
             <td>{{data.amount|fomatNumber18(data.decimals,2)}}</td>
             <td><router-link :to="'/address/' + data.fromAddress">{{data.fromAddress|subAddrStr(5)}}</router-link></td>

@@ -1,6 +1,6 @@
 <template>
 
-<div class="container" style="">
+<div class="container">
 
 <header class="bd-header" style="margin-bottom: 0rem;">
   <div class="bd-header-titles" >
@@ -20,111 +20,72 @@
         <table class="table is-striped" style="width: 100%;">
         <tbody>
             <tr>
-              <th width="200">Transaction Hash：</th>
-              <td><span class="success-span"><span></span></span></td>
+              <th width="240">Transaction Hash：</th>
+              <td>{{txDetail.hash}}</td>
             </tr>
             <tr>
-              <th width="200">Response Transaction Hash：</th>
-              <td>{{blockData.height}}</td>
+              <th>Request Transaction Hash：</th>
+              <td><router-link :to="'/tx/'+txDetail.receiveBlockHash">{{txDetail.receiveBlockHash}}</router-link></td>
             </tr>
             <tr>
-              <th style="">Transaction Type：</th>
-              <td>{{blockData.hash}}</td>
+              <th>Response Transaction Hash：</th>
+              <td><router-link :to="'/tx/'+txDetail.receiveBlockHash">{{txDetail.receiveBlockHash}}</router-link></td>
             </tr>
             <tr>
-              <th style="">Transaction Status：</th>
-              <td>{{blockData.hash}}</td>
+              <th>Transaction Type：</th>
+              <td>{{txDetail.blockType|fomatBlockType}}</td>
             </tr>
             <tr>
-              <th style="">Confirmations：</th>
-              <td>{{blockData.hash}}</td>
+              <th>Transaction Status：</th>
+              <td></td>
             </tr>
             <tr>
-              <th style="">Firstly Snapshotted By：</th>
-              <td>{{blockData.hash}}</td>
+              <th>Confirmations：</th>
+              <td>{{txDetail.confirmations}}</td>
             </tr>
             <tr>
-              <th style="">Age：</th>
-              <td>{{blockData.timestamp|fomatTime(blockData.diffTime)}}（{{blockData.timestamp|fomatDate}}）</td>
+              <th>Firstly Snapshotted By：</th>
+              <td><router-link :to="'/block/'+txDetail.firstSnapshotHash">{{txDetail.firstSnapshotHash}}</router-link></td>
             </tr>
             <tr>
-              <th style="">From：</th>
-              <td>{{blockData.accountCount}}</td>
+              <th>Producer：</th>
+              <td><router-link :to="'/address/' + txDetail.producer">{{txDetail.producer}}</router-link></td>
             </tr>
             <tr>
-              <th style="">To：</th>
-              <td>{{blockData.txCount}}</td>
+              <th>Age：</th>
+              <td>{{txDetail.timestamp|fomatTime(txDetail.diffTime)}}（{{txDetail.timestamp|fomatDate}}）</td>
             </tr>
             <tr>
-              <th style="">Token：</th>
-              <td><a href="#">{{blockData.nodeName}}</a></td>
+              <th>From：</th>
+              <td><router-link :to="'/address/'+txDetail.fromAddress">{{txDetail.fromAddress}}</router-link></td>
             </tr>
             <tr>
-              <th style="">Quantity：</th>
-              <td><a href="#">{{blockData.nodeAddr}}</a></td>
+              <th>To：</th>
+              <td><router-link :to="'/address/'+txDetail.toAddress">{{txDetail.toAddress}}</router-link></td>
             </tr>
             <tr>
-              <th style="">Input Data：</th>
-              <td><a href="#">{{blockData.nodeAddr}}</a></td>
+              <th>Token：</th>
+              <td><a href="#">{{txDetail.tokenSymbol}}</a></td>
+            </tr>
+            <tr>
+              <th>Quantity：</th>
+              <td>{{txDetail.amount|fomatNumber18(txDetail.decimals,txDetail.decimals)}}</td>
+            </tr>
+            <tr>
+              <th>UT Used：</th>
+              <td>{{txDetail.utUsed}}</td>
+            </tr>
+            <tr>
+              <th>Input Data：</th>
+              <td>{{txDetail.data}}</td>
+            </tr>
+            <tr>
+              <th>Input Data（Base64.decode）：</th>
+              <td>{{txDetail.data2}}</td>
             </tr>
         </tbody>
         </table>
       </div>
-      </div>
-<div class="tabs is-medium" style="background-color: #fff;margin-bottom: 0rem;">
-  <ul>
-    <li class="is-active"><span>Transactions</span></li>
-    <!--<li><a>Contract Internal Transactions</a></li>-->
-  </ul>
-</div>
-
-<div class="table-pdiv" style="margin-bottom: 1rem;">
-<div class="container table-div" style="padding: 2rem;background: white;" >
-
-        <table class="table is-striped" style="width: 100%;border: solid 1px #dbdbdb;">
-        <thead>
-            <tr>
-            <th>Hash</th>
-            <th>Token</th>
-            <th>Quantity</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Status</th>
-            <!-- <th>Snapshotted By</th> -->
-            <th>Age</th>
-            <th>Confirmations</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="data in txnsData">
-            <td><a href="#">{{data.hash|subAddrStr(5)}}</a></td>
-            <td>{{data.tokenSymbol}}</td>
-            <td>{{data.amount|fomatNumber18(data.decimals,2)}}</td>
-            <td><router-link :to="'/address/' + data.fromAddress">{{data.fromAddress|subAddrStr(5)}}</router-link></td>
-            <td><router-link :to="'/address/' + data.toAddress">{{data.toAddress|subAddrStr(5)}}</router-link></td>
-            <td>{{data.blockType|fomatBlockType}}</td>
-            <!-- <td><a href="#">{{data.snapshotHash|subAddrStr(5)}}</a></td> -->
-            <td>{{blockData.timestamp|fomatTime(blockData.diffTime)}}</td>
-            <td>{{blockData.confirmations}}</td>
-            </tr>
-        </tbody>
-        </table>
-      </div>
-  
-	<paginate
-	    :page-count="pageCount"
-	    :page-range="3"
-	    :margin-pages="2"
-	    :click-handler="clickCallback"
-	    :prev-text="'Prev'"
-	    :next-text="'Next'"
-	    :container-class="'paginationV'"
-	    :page-class="'page-itemV'"
-	    :page-link-class="'page-itemVA'">
-
-      <li ><a tabindex="0">Next</a></li>
-	  </paginate>
-
       </div>
   </div>
 </template>
@@ -135,8 +96,7 @@
   export default {
     data: function() {
       return {
-        blockData:{},
-        txnsData:[],
+        txDetail:{},
         pageCount:1
       }
     },
@@ -154,9 +114,9 @@
         loadData:function(){
             NProgress.start();
             const self = this;
-            this.url = "http://localhost/block";
+            this.url = "http://localhost/tx/getTxDetail";
             const params = {
-                blockHeight:self.$route.params.height
+                txHash:self.$route.params.hash
             }
 
             this.$axios({
@@ -164,8 +124,8 @@
                     url:this.url,
                     params:params
             }).then(function(response) {      
-                self.blockData = response.data.data.snapshotBlockInfo;
-                self.txnsData = response.data.data.accountBlockInfos;
+                self.txDetail = response.data.data;
+                
                 NProgress.done();
             }).catch( function(response) {
               NProgress.done();
