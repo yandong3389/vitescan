@@ -86,7 +86,7 @@
         loadData:function(){
 
             const self = this;
-            this.url = "http://39.100.79.183:8888/index/blockData";
+            this.url = "/vs-api/index/blockData";
 
             this.$axios({
                     method: 'get',

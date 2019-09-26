@@ -77,11 +77,11 @@
             </tr>
             <tr>
               <th>Input Data：</th>
-              <td>{{txDetail.data}}</td>
+              <td><textarea readonly class="text-data">{{txDetail.data}}</textarea></td>
             </tr>
             <tr>
               <th>Input Data（Base64.decode）：</th>
-              <td>{{txDetail.data2}}</td>
+              <td><textarea readonly class="text-data">{{txDetail.data2}}</textarea></td>
             </tr>
         </tbody>
         </table>
@@ -114,7 +114,7 @@
         loadData:function(){
             NProgress.start();
             const self = this;
-            this.url = "http://localhost/tx/getTxDetail";
+            this.url = "/vs-api/tx/getTxDetail";
             const params = {
                 txHash:self.$route.params.hash
             }
@@ -168,5 +168,12 @@
     border-bottom-color: #3273dc;
     color: #3273dc;
 }
-
+.text-data {
+    margin: 0px;
+    max-width: 700px;
+    width: 700px;
+    height: 110px;
+    outline: none;
+    resize: none;
+}
 </style>

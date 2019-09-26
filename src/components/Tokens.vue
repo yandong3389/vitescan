@@ -91,7 +91,7 @@
         loadData:function(pageNum){
             NProgress.start();
             const self = this;
-            this.url = "http://localhost/tokenList?pageNo=" + pageNum;
+            this.url = "/vs-api/tokenList?pageNo=" + pageNum;
 
             this.$axios({
                     method: 'get',

@@ -76,7 +76,7 @@
         loadData:function(){
             // NProgress.start();
             const self = this;
-            this.url = "http://localhost/nodeList";
+            this.url = "/vs-api/nodeList";
 
             this.$axios({
                     method: 'get',

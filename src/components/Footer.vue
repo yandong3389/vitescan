@@ -94,7 +94,8 @@
 		      <i class="fas fa-rocket"></i>
 		    </span>
          -->
-		    <strong>ViteX DEX（手续费9折邀请码：1918500189）</strong>
+        <strong>ViteX DEX</strong>
+		    <!-- <strong>ViteX DEX（手续费9折邀请码：1918500189）</strong> -->
 		    <!-- <em>https://x.vite.net</em> -->
 		  </a>
 		</p>

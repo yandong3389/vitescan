@@ -28,7 +28,7 @@
            <span>PreMainnet</span>
            </a>
 			<div id="" class="moreDropdownEN navbar-dropdown">
-            <router-link class="navbar-item" @click.native="changelang('en')" to="">
+            <router-link class="navbar-item" to="">
               <span>
                 <span class="icon theme-color-font">
                   <i class="fa fa-globe"></i>

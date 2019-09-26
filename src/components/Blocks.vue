@@ -77,7 +77,7 @@
         loadData:function(pageNum){
             NProgress.start();
             const self = this;
-            this.url = "http://localhost/blocks?pageNo=" + pageNum;
+            this.url = "/vs-api/blocks?pageNo=" + pageNum;
 
             this.$axios({
                     method: 'get',

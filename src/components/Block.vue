@@ -138,7 +138,7 @@
         loadData:function(){
             NProgress.start();
             const self = this;
-            this.url = "http://localhost/block";
+            this.url = "/vs-api/block";
             const params = {
                 blockHeight:self.$route.params.height
             }

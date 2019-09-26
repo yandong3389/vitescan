@@ -178,7 +178,7 @@ import HighCharts from 'highcharts'
         loadData:function(){
 
             const self = this;
-            this.url = "http://localhost/index/data";
+            this.url = "/vs-api/index/data";
 
             this.$axios({
                     method: 'get',
