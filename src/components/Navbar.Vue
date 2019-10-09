@@ -12,7 +12,7 @@
         <path fill="rgb(50, 115, 220)" d="m497 482h-16v-317c0-8.285156-6.714844-15-15-15h-60c-8.285156 0-15 6.714844-15 15v317h-30v-227c0-8.285156-6.714844-15-15-15h-60c-8.285156 0-15 6.714844-15 15v227h-30v-107c0-8.285156-6.714844-15-15-15h-60c-8.285156 0-15 6.714844-15 15v107h-30v-167c0-8.285156-6.714844-15-15-15h-60c-8.285156 0-15 6.714844-15 15v167h-16c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h482c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15zm-76-302h30v302h-30zm-120 90h30v212h-30zm-120 120h30v92h-30zm-120-60h30v152h-30zm0 0"/>
       </svg>
       <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66 34" xml:space="preserve" style="enable-background:new 0 0 66 34;width: 80px;height: 36px;"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="home" transform="translate(-140.000000, -15.000000)" fill="#3273dc" ><g id="header" ><g id="Page-1" transform="translate(140.000000, 15.000000)" ><polygon id="Fill-1" points="0 8.26842569 10.0518349 33.9059853 11.1644771 5.7596" ></polygon><polygon id="Fill-2" points="13.7158183 5.27651927 10.4047174 33.9431982 36.0790844 -3.11926606e-05" ></polygon><g id="Group-2" transform="translate(27.818182, 14.424242)" ><polygon id="Fill-3" points="5.06661818 10.2992787 5.03573745 10.2992787 1.24738882 0.789260328 0.536196163 0.789260328 4.64926038 10.833609 5.43781084 10.833609 9.56615947 0.789260328 8.88584754 0.789260328" ></polygon><polygon id="Fill-4" points="13.4163319 10.8337025 14.0966439 10.8337025 14.0966439 0.789041979 13.4163319 0.789041979" ></polygon><polygon id="Fill-5" points="17.9468475 1.32393372 21.8278384 1.32393372 21.8278384 10.8336401 22.5081503 10.8336401 22.5081503 1.32393372 26.4047374 1.32393372 26.4047374 0.789291521 17.9468475 0.789291521" ></polygon><polygon id="Fill-6" points="30.2547228 0.789260328 30.2547228 10.833609 37.7540622 10.833609 37.7540622 10.2992787 30.9350347 10.2992787 30.9350347 5.88177409 37.274631 5.88177409 37.274631 5.34713189 30.9350347 5.34713189 30.9350347 1.32421446 37.6767044 1.32421446 37.6767044 0.789260328"></polygon></g></g></g></g></g></svg> -->
-      <p style="font-size: 24px;color: rgb(50, 115, 220);font-family: yahei;">ViteScan.io</p>
+      <p style="font-size: 24px;color: rgb(50, 115, 220);font-family: yahei;">ViteScan</p>
       <p style="margin-top: 6px;color: #3273dc;margin-left: 10px;font-size: 13px;font-family: yahei;">最专业的 Vite 数据服务提供商</p>
     </router-link>
 	 </div>
@@ -85,9 +85,13 @@
   <div class="navbar-brand">
   
 	<router-link class="navbar-item logoShow" to="/">
+      <svg  style="enable-background:new 0 0 66 34;width: 50px;height: 36px;margin-top: -10px;" viewBox="0 0 512 512" height="51pt" width="51pt" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#eb1919" d="m76 240c12.109375 0 23.109375-4.816406 31.207031-12.625l44.148438 22.074219c-.226563 1.820312-.355469 3.667969-.355469 5.550781 0 24.8125 20.1875 45 45 45s45-20.1875 45-45c0-6.9375-1.582031-13.515625-4.398438-19.390625l60.007813-60.007813c5.875 2.816407 12.453125 4.398438 19.390625 4.398438 24.8125 0 45-20.1875 45-45 0-4.6875-.722656-9.207031-2.058594-13.457031l52.132813-39.097657c7.140625 4.769532 15.710937 7.554688 24.925781 7.554688 24.8125 0 45-20.1875 45-45s-20.1875-45-45-45-45 20.1875-45 45c0 4.6875.722656 9.207031 2.058594 13.457031l-52.132813 39.097657c-7.140625-4.769532-15.710937-7.554688-24.925781-7.554688-24.8125 0-45 20.1875-45 45 0 6.9375 1.582031 13.515625 4.398438 19.390625l-60.007813 60.007813c-5.875-2.816407-12.453125-4.398438-19.390625-4.398438-12.109375 0-23.109375 4.816406-31.207031 12.625l-44.148438-22.074219c.226563-1.820312.355469-3.667969.355469-5.550781 0-24.8125-20.1875-45-45-45s-45 20.1875-45 45 20.1875 45 45 45zm360-210c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm-120 90c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm-120 120c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm-120-60c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"/>
+        <path fill="rgb(50, 115, 220)" d="m497 482h-16v-317c0-8.285156-6.714844-15-15-15h-60c-8.285156 0-15 6.714844-15 15v317h-30v-227c0-8.285156-6.714844-15-15-15h-60c-8.285156 0-15 6.714844-15 15v227h-30v-107c0-8.285156-6.714844-15-15-15h-60c-8.285156 0-15 6.714844-15 15v107h-30v-167c0-8.285156-6.714844-15-15-15h-60c-8.285156 0-15 6.714844-15 15v167h-16c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h482c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15zm-76-302h30v302h-30zm-120 90h30v212h-30zm-120 120h30v92h-30zm-120-60h30v152h-30zm0 0"/>
+      </svg>
       <!-- <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, &amp; modern CSS framework based on Flexbox" width="112" height="28"> -->
-      <p style="font-size: 24px;color: rgb(50, 115, 220);font-family: yahei;">ViteScan.io</p>
-      <p style="margin-top: 6px;color: #3273dc;margin-left: 10px;font-size: 13px;font-family: yahei;">最专业的 Vite 数据服务提供商</p>
+      <p style="font-size: 24px;color: rgb(50, 115, 220);font-family: yahei;">ViteScan</p>
+      <p style="margin-top: 6px;color: #3273dc;margin-left: 10px;font-size: 13px;font-family: yahei;">最专业的Vite数据服务提供商</p>
     </router-link>
   
     <div id="navbarBurger" v-on:click="active = !active" v-bind:class = "{'is-active': active }"  class="navbar-burger burger" data-target="navMenuDocumentation">
@@ -321,8 +325,8 @@
   </div>
   
   <div class="navbar-item search-item" style="">
-<input placeholder="Search by Block / Transaction / Account / Token" value="" class="search-input theme-color-font">
-<router-link to="/" class="button theme-color router-link-exact-active router-link-active" style="border-radius: 0px 4px 4px 0px;"><span class="fas fa-search"></span></router-link>
+<input placeholder="Search by Block / Transaction / Account / Contract" value="" v-model="keyword" class="search-input theme-color-font">
+<button @click="searchByKey()" class="button theme-color router-link-exact-active router-link-active" style="border-radius: 0px 4px 4px 0px;"><span class="fas fa-search"></span></button>
 </div>
 
   </div>
@@ -339,7 +343,8 @@
             language:localStorage.getItem('locale') == 'en' ? 'English' : '简体中文',
             active: false,
             companyLogo: companyLogo,
-            'selectedNavTheme': ""
+            'selectedNavTheme': "",
+            keyword:''
         }
         },
         methods: {
@@ -363,6 +368,30 @@
             },
             randomTheme: function() {
             this.selectedNavTheme = this.navbarThemes[Math.floor(Math.random() * this.navbarThemes.length)]
+            },
+            searchByKey: function() {
+
+                let keyword = this.keyword;
+
+                if(keyword === "" || keyword == null){
+                    return false;
+              　}
+
+                // address / block num / block hash / tx hash
+                if (keyword.length == 55 && keyword.indexOf('vite_') == 0) {
+                   console.info("address");
+                   this.$router.push("/address/" + keyword)
+                } else if (!isNaN(keyword)){
+                   console.info("block Number");
+                   this.$router.push("/block/" + keyword)
+                } else if (keyword.length == 64){
+                   console.info("hash");
+                   this.$router.push("/tx/" + keyword)
+                } else {
+                   console.info("无效关键字！");
+                }
+
+
             }
         }
   }

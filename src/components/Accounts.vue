@@ -5,8 +5,9 @@
 <header class="bd-header" style="margin-bottom: 0rem;">
   <div class="bd-header-titles" >
     <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Top Accounts by VITE Balance</h1>
-    <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">A total of > 1,999,999 accounts found (107,357,467.03 VITE)
-(Showing the last 10,000 top accounts only)</p>
+    <!-- <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">
+      A total of > 1,999,999 accounts found (107,357,467.03 VITE)
+(Showing the last 10,000 top accounts only)</p> -->
   </div>
 </header>
 <div class="table-pdiv" style="margin-bottom: 1rem;">
@@ -15,18 +16,27 @@
         <table class="table" style="width: 100%;border: solid 1px #dbdbdb;">
         <thead>
             <tr>
-            <th>Block Number</th>
-            <th>Txns</th>
-            <th>SBP</th>
-            <th>Date</th>
+            <th>Rank</th>
+            <th>Address</th>
+            <th>Name Tag</th>
+            <th><i class="fa fa-angle-down text-secondary"></i> Balance</th>
+            <th>Percentage</th>
+            <th>Txn Count</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="data in blocksData">
-            <td><a href="#">#{{data.bn}}</a></td>
-            <td><a href="#">{{data.txns}} txns</a></td>
-            <td><a href="#">{{data.sbp}}</a></td>
-            <td>{{data.date }}</td>
+            <tr v-for="data in accountsData">
+              <td>{{data.rank }}</td>
+              <td>
+                <span v-if="data.addrType=='1'" >
+                    <i class="fa fa-file-contract theme-color-font"></i>
+                </span>
+                <router-link :to="'/address/'+data.address">{{data.address}}</router-link>
+              </td>
+              <td>{{data.nameTag}}</td>
+              <td>{{data.balance|fomatNumber18(0,0)|fomatNumber3}} VITE</td>
+              <td>{{data.percentage }}</td>
+              <td>{{data.txnCount|fomatNumber3 }}</td>
             </tr>
         </tbody>
         </table>
@@ -36,7 +46,7 @@
 
   
 	<paginate
-	    :page-count="20"
+	    :page-count="pageCount"
 	    :page-range="3"
 	    :margin-pages="2"
 	    :click-handler="clickCallback"
@@ -55,48 +65,39 @@
 
 <script>
   import axios from 'axios';
-  
+  import NProgress from 'nprogress'
   export default {
     data: function() {
       return {
-        blocksData:[
-        {bn:14564, txns:123, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14563, txns:12, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14562, txns:33, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14561, txns:119, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14560, txns:13, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14559, txns:23, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14558, txns:993, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14557, txns:45, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14556, txns:553, sbp:'N4Y', date:'1 mins 6 secs ago'},
-        {bn:14555, txns:857, sbp:'N4Y', date:'1 mins 6 secs ago'}
-        ],
-        txnsData:[]
+        accountsData:[],
+        pageCount:1
       }
     },
     created() {
-        // this.timer = setInterval(this.loadData, 1000)
+        this.loadData(1);
     },
     beforeDestroy () {
-        // clearInterval(this.timer)
+       
     },
     methods: {
 	    clickCallback:function(pageNum){
-	      console.log(pageNum)
+	      this.loadData(pageNum);
 	    },
-        loadData:function(){
-
+        loadData:function(pageNum){
+            NProgress.start();
             const self = this;
-            this.url = "/vs-api/index/blockData";
+            this.url = "/vs-api/accounts?pageNo=" + pageNum;
 
             this.$axios({
                     method: 'get',
                     url:this.url
             }).then(function(response) {
-                console.log(response)
-                self.last = response.data.data.result.current;
+                NProgress.done();
+                self.accountsData = response.data.data.accountsResults;
+                self.total = response.data.data.total;
+                self.pageCount = response.data.data.pageCount;
             }).catch( function(response) {
-                console.log(response)
+                NProgress.done();
             });
 
         }
@@ -105,9 +106,9 @@
 </script>
 
 <style scoped lang="css">
-@media screen and (max-width: 750px){
+@media screen and (max-width: 900px){
 .table-div {
-    width: 700px;
+    width: 900px;
 }
 .table-pdiv {
     overflow-x: auto;
