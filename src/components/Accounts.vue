@@ -5,9 +5,9 @@
 <header class="bd-header" style="margin-bottom: 0rem;">
   <div class="bd-header-titles" >
     <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Top Accounts by VITE Balance</h1>
-    <!-- <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">
-      A total of > 1,999,999 accounts found (107,357,467.03 VITE)
-(Showing the last 10,000 top accounts only)</p> -->
+    <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">
+      A total of {{total}} accounts found ({{viteTokenTotal|fomatNumber3}} VITE)   
+(Showing the last 10,000 top accounts only)</p>
   </div>
 </header>
 <div class="table-pdiv" style="margin-bottom: 1rem;">
@@ -19,7 +19,10 @@
             <th>Rank</th>
             <th>Address</th>
             <th>Name Tag</th>
-            <th><i class="fa fa-angle-down text-secondary"></i> Balance</th>
+            <th>Wallet Balance</th>
+            <th>DEX Available</th>
+            <th>DEX Locked</th>
+            <th><i class="fa fa-angle-down text-secondary"></i> Balance Total</th>
             <th>Percentage</th>
             <th>Txn Count</th>
             </tr>
@@ -29,13 +32,16 @@
               <td>{{data.rank }}</td>
               <td>
                 <span v-if="data.addrType=='1'" >
-                    <i class="fa fa-file-contract theme-color-font"></i>
+                    <i title="Contract" class="fa fa-file-contract theme-color-font"></i>
                 </span>
                 <router-link :to="'/address/'+data.address">{{data.address}}</router-link>
               </td>
               <td>{{data.nameTag}}</td>
               <td>{{data.balance|fomatNumber18(0,0)|fomatNumber3}} VITE</td>
-              <td>{{data.percentage }}</td>
+              <td>{{data.dexAvailableBalance|fomatNumber18(0,0)|fomatNumber3}} VITE</td>
+              <td>{{data.dexLockedBalance|fomatNumber18(0,0)|fomatNumber3}} VITE</td>
+              <td>{{data.totalBalance|fomatNumber18(0,0)|fomatNumber3}} VITE</td>
+              <td>{{data.percentage|fomatNumber18(0,4)}}%</td>
               <td>{{data.txnCount|fomatNumber3 }}</td>
             </tr>
         </tbody>
@@ -70,7 +76,10 @@
     data: function() {
       return {
         accountsData:[],
-        pageCount:1
+        pageCount:1,
+        viteTokenTotal:0,
+        total:0
+
       }
     },
     created() {
@@ -96,6 +105,7 @@
                 self.accountsData = response.data.data.accountsResults;
                 self.total = response.data.data.total;
                 self.pageCount = response.data.data.pageCount;
+                self.viteTokenTotal = response.data.data.viteTokenTotal;
             }).catch( function(response) {
                 NProgress.done();
             });

@@ -30,10 +30,10 @@
         <tbody>
             <tr v-for="data in tokenListData">
             <td>{{data.tokenId}}</td>
-            <td><a href="#">{{data.tokenSymbol}}</a></td>
+            <td><router-link :to="'/token/'+data.tokenId">{{data.tokenSymbol}}</router-link></td>
             <td>{{data.tokenName}}</td>
             <td>{{data.decimals}}</td>
-            <td>{{data.tokenSupply|fomatNumber18(data.decimals,4)}}</td>
+            <td>{{data.tokenSupply|fomatNumber18(data.decimals,4)|fomatNumber3}}</td>
             <td><router-link :to="'/address/'+data.owner">{{data.owner|subAddrStr(8)}}</router-link></td>
             <!-- 
             <td>{{data.isReissuable}}</td>

@@ -123,7 +123,8 @@ display:none;
 }
 
 .theme-color-footer-hr{
-    background-color: #6c757e;
+    /* background-color: #6c757e; */
+    background-color: #e7eaf333;
 }
 .theme-color{
     /** background-color: #6c757e;*/

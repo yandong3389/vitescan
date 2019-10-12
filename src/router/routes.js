@@ -4,6 +4,7 @@ import block from '@/components/Block'
 import transactions from '@/components/Transactions'
 import transaction from '@/components/Transaction'
 import tokens from '@/components/Tokens'
+import token from '@/components/Token'
 import sbps from '@/components/SBPList'
 import accounts from '@/components/Accounts'
 import address from '@/components/Address'
@@ -62,6 +63,13 @@ export default [
     component: tokens,
     meta:{
         title:'Tokens'
+    }
+  },
+  {
+    path: '/token/:tokenId',
+    component: token,
+    meta:{
+        title:'Token'
     }
   },
   {

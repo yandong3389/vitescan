@@ -173,7 +173,10 @@
           <span class="icon theme-color-font"><i class="fa fa-server"></i></span>
           <span>SBP</span>
         </router-link>
-
+        <router-link class="navbar-item " to="#">
+          <span class="icon theme-color-font"><i class="fa fa-chart-bar"></i></span>
+          <span>ViteX</span>
+        </router-link>
 <!--
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" href="#">

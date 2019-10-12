@@ -11,7 +11,7 @@
           <a href="#">关于我们</a>
         </p>
 
-        <p class="bd-footer-link">
+        <p class="bd-footer-link" style="color: #ffffffb3;">
           建议反馈
         </p>
         <p style="margin-top: 0.5rem;">
@@ -63,63 +63,63 @@
     <div class="column is-3">
       <p class="bd-footer-link-title" style="color: white;">Vite生态</p>
       <hr class="navbar-divider theme-color-footer-hr hrshow">
-      <p class="bd-footer-link bd-has-subtitle">
+      <p class="bd-footer-link">
 	    <a href="https://vite.org/" target="_blank">
       <!-- 
 	    <span class="bd-footer-link-icon has-text-star">
 	      <i class="fas fa-star"></i>
 	    </span>
        -->
-	    <strong>Vite官网</strong>
+	    Vite官网
 	    <!-- <em>https://vite.org</em> -->
 	  </a>
 	</p>
 
-      <p class="bd-footer-link bd-has-subtitle">
+      <p class="bd-footer-link">
 	  <a href="https://wallet.vite.net/" target="_blank">
       <!-- 
 	    <span class="bd-footer-link-icon has-text-danger">
 	      <i class="fas fa-heart"></i>
 	    </span>
        -->
-	    <strong>Vite钱包</strong>
+	    Vite钱包
 	    <!-- <em>https://wallet.vite.net</em> -->
 	  </a>
 	</p>
 
-        <p class="bd-footer-link bd-has-subtitle">
+        <p class="bd-footer-link">
 		  <a href="https://x.vite.net/" target="_blank">
         <!-- 
 		    <span class="bd-footer-link-icon has-text-success">
 		      <i class="fas fa-rocket"></i>
 		    </span>
          -->
-        <strong>ViteX DEX</strong>
+        ViteX DEX
 		    <!-- <strong>ViteX DEX（手续费9折邀请码：1918500189）</strong> -->
 		    <!-- <em>https://x.vite.net</em> -->
 		  </a>
 		</p>
 
-        <p class="bd-footer-link bd-has-subtitle">
+        <p class="bd-footer-link">
 		  <a href="https://global.vite.store/" target="_blank">
         <!-- 
 		    <span class="bd-footer-link-icon has-text-primary">
 		      <i class="fas fa-certificate"></i>
 		    </span>
          -->
-		    <strong>Vite商城</strong>
+		    Vite商城
 		    <!-- <em>https://global.vite.store</em> -->
 		  </a>
 		</p>
         
-        <p class="bd-footer-link bd-has-subtitle">
+        <p class="bd-footer-link">
 		  <a href="https://forum.vite.net/" target="_blank">
         <!--  
 		    <span class="bd-footer-link-icon has-text-bootstrap">
 		     <i class="fas fa-exchange-alt"></i>
 		    </span>
          -->
-		    <strong>Vite官方论坛</strong>
+		    Vite官方论坛
 		    <!-- <em>https://forum.vite.net</em> -->
 		  </a>
 		</p>
@@ -159,8 +159,8 @@
   <div class="container" style="margin-top: 50px;">
     <hr class="navbar-divider theme-color-footer-hr hrshow">
     <div class="columns is-vcentered">
-        <div class="column is-4"><p class=" has-text-grey-light">Copyright© 2019 vitescan.io</p></div> 
-		<div class="column is-8 leftright faddr" style=""><router-link to="/address/vite_bb684ad129fc08261b6453ccc23bea0d6110fc5d16bd788888" style="">Donations: vite_bb684ad129fc08261b6453ccc23bea0d6110fc5d16bd788888</router-link></div>
+        <div class="column is-4"><p class="">Copyright© 2019 vitescan.io</p></div> 
+		<div class="column is-8 leftright faddr" style="">Donations <router-link to="/address/vite_bb684ad129fc08261b6453ccc23bea0d6110fc5d16bd788888" style="">vite_bb684ad129fc08261b6453ccc23bea0d6110fc5d16bd788888</router-link></div>
 	</div>
   </div>
   
@@ -192,16 +192,14 @@
 
 <style>
 
-.faddr a{
-  color: #b5b5b5!important;
-}
+
 .bd-footer-links {
     margin-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
 .bd-footer-links a {
     /* color: currentColor; */
-    color: white;
+    color:#ffffffb3;
 }
 .hrshow{
 display: block;
@@ -221,13 +219,19 @@ overflow-x: auto;
 /**background-color: #333;*/
 color: white;
 padding-bottom: 1rem;
-background: linear-gradient(180deg,transparent 0,rgba(0,0,0,.8));
+/* background: linear-gradient(180deg,transparent 0,rgba(0,0,0,.8));
 background-color: #3273dc;
 background-repeat: no-repeat;
 background-attachment: fixed;
-transition: .5s linear;
+transition: .5s linear; */
+
+background-image: linear-gradient(150deg,#19a0ff,#2d1582);
+background-repeat: repeat-x;
 }
 .faddr a:hover {
-    color: #3273dc;
+    color: #fff;
+}
+.faddr a {
+    color: #ffffffb3;
 }
 </style>

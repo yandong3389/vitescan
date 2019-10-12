@@ -4,7 +4,7 @@
 
 <header class="bd-header" style="margin-bottom: 0rem;">
   <div class="bd-header-titles" >
-    <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Address</h1>
+    <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Token Info</h1>
     <!--<p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">#8355250</p>-->
   </div>
 </header>
@@ -20,30 +20,36 @@
         <table class="table is-striped" style="width: 100%;">
         <tbody>
             <tr>
-              <th width="200">Address：</th>
-              <td><span v-if="accountInfo.addrType=='1'" ><i title="Contract" class="fa fa-file-contract theme-color-font"></i></span> {{accountInfo.address}}</td>
+              <th width="200">代币名称：</th>
+              <td>{{tokenInfo.tokenName}}</td>
             </tr>
             <tr>
-              <th style="">Transactions：</th>
-              <td>{{accountInfo.totalNumber|fomatNumber3}}</td>
-              <!-- <td>39182（转入<i class="fa fa-arrow-down text-success"></i>25369 转出<i class="fa fa-arrow-up  text-danger"></i>13813 )</td> -->
+              <th>代币简称:	</th>
+              <td>{{tokenInfo.tokenSymbol}}</td>
             </tr>
             <tr>
-              <th style="">Quota：</th>
-              <td>{{pledgeQuota.utps}} UTPS</td>
+              <th>持币用户数：</th>
+              <td>{{holderCount}}</td>
             </tr>
             <tr>
-              <th style="">VITE Balance：</th>
-              <td>{{accountInfo.viteBalance|fomatNumber3}} VITE</td>
+              <th>总供应量：</th>
+              <td>{{tokenInfo.tokenSupply|fomatNumber18(tokenInfo.decimals,0)|fomatNumber3}}</td>
             </tr>
             <tr>
-              <th style="">Vote Node：</th>
-              <td><router-link :to="'/address/'+voteNodeAddress">{{accountInfo.voteNodeName}}</router-link></td>
+              <th>铸币地址：</th>
+              <td><router-link :to="'/address/'+tokenInfo.owner">{{tokenInfo.owner}}</router-link></td>
             </tr>
-            <!-- 节点有效状态{{accountInfo.voteNodeStatus}} -->
             <tr>
-              <th>Total Votes:	</th>
-              <td>{{accountInfo.viteBalance|fomatNumber3}} VITE</td>
+              <th>是否可增发：</th>
+              <td>{{tokenInfo.isReissuable == '0'?'否':'是'}}</td>
+            </tr>
+            <tr>
+              <th>是否仅支持铸币者销毁：</th>
+              <td>{{tokenInfo.ownBurnOnly == '0'?'否':'是'}}</td>
+            </tr>
+            <tr>
+              <th>小数位数：</th>
+              <td>{{tokenInfo.decimals}}</td>
             </tr>
         </tbody>
         </table>
@@ -51,44 +57,45 @@
       </div>
 <div class="tabs is-medium" style="background-color: #fff;margin-bottom: 0rem;">
   <ul>
-    <li :class="{'is-active':tabFlag=='balance'}"><a href="javascript:;" @click="changeTab('balance')">Token Balance</a></li>
+    <li :class="{'is-active':tabFlag=='holders'}"><a href="javascript:;" @click="changeTab('holders')">Holders</a></li>
     <li :class="{'is-active':tabFlag=='txns'}"><a href="javascript:;" @click="changeTab('txns')">Transactions</a></li>
-    <li :class="{'is-active':tabFlag=='untxns'}"><a href="javascript:;" @click="changeTab('untxns')">Unreceived Transactions</a></li>
-    <li :class="{'is-active':tabFlag=='snaplist'}"><a href="javascript:;" @click="changeTab('snaplist')">Snapshot Block List</a></li>
-    <li :class="{'is-active':tabFlag=='voters'}"><a href="javascript:;" @click="changeTab('voters')">Voters</a></li>
-    <li :class="{'is-active':tabFlag=='contract'}"><a href="javascript:;" @click="changeTab('contract')">Contract</a></li>
   </ul>
 </div>
 
 <div class="table-pdiv" style="margin-bottom: 1rem;">
     <div class="container table-div" style="padding: 2rem;background: white;" >
 
-      <div v-if="tabFlag=='balance'">
+      <div v-if="tabFlag=='holders'">
         <table class="table is-striped" style="width: 100%;border: solid 1px #dbdbdb;">
-        <thead>
+                <thead>
             <tr>
-            <th>Token</th>
-            <th>TokenId</th>
-            <th>decimals</th>
+            <th>Rank</th>
+            <th>Address</th>
+            <th>Name Tag</th>
             <th>Wallet Balance</th>
-            <th>Dex Available</th>
-            <th>Dex Locked</th>
-            <th>Balance Total</th>
-            <th>Price</th>
-            <th>Value</th>
+            <th>DEX Available</th>
+            <th>DEX Locked</th>
+            <th><i class="fa fa-angle-down text-secondary"></i> Balance Total</th>
+            <th>Percentage</th>
+            <th>Txn Count</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="data in accountBalanceInfos">
-            <td><router-link :to="'/token/'+data.tokenId">{{data.tokenSymbol}}</router-link></td>
-            <td>{{data.tokenId}}</td>
-            <td>{{data.decimals}}</td>
-            <td>{{data.balance|fomatNumber18(data.decimals,data.decimals)|fomatNumber3}}</td>
-            <td>{{data.dexAvailableBalance|fomatNumber18(data.decimals,data.decimals)|fomatNumber3}}</td>
-            <td>{{data.dexLockedBalance|fomatNumber18(data.decimals,data.decimals)|fomatNumber3}}</td>
-            <td>{{data.totalBalance|fomatNumber18(data.decimals,data.decimals)|fomatNumber3}}</td>
-            <td>-</td>
-            <td>-</td>
+            <tr v-for="data in accountsResults">
+              <td>{{data.rank }}</td>
+              <td>
+                <span v-if="data.addrType=='1'" >
+                    <i title="Contract" class="fa fa-file-contract theme-color-font"></i>
+                </span>
+                <router-link :to="'/address/'+data.address">{{data.address}}</router-link>
+              </td>
+              <td>{{data.nameTag}}</td>
+              <td>{{data.balance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
+              <td>{{data.dexAvailableBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
+              <td>{{data.dexLockedBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
+              <td>{{data.totalBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
+              <td>{{data.percentage|fomatNumber18(0,4)}}%</td>
+              <td>{{data.txnCount|fomatNumber3 }}</td>
             </tr>
         </tbody>
         </table>
@@ -105,7 +112,6 @@
             <th>From</th>
             <th>To</th>
             <th>Status</th>
-            <!-- <th>Snapshotted By</th> -->
             <th>Age</th>
             <th>Confirmations</th>
             </tr>
@@ -118,7 +124,6 @@
             <td><router-link :to="'/address/' + data.fromAddress">{{data.fromAddress|subAddrStr(5)}}</router-link></td>
             <td><router-link :to="'/address/' + data.toAddress">{{data.toAddress|subAddrStr(5)}}</router-link></td>
             <td>{{data.blockType|fomatBlockType}}</td>
-            <!-- <td><a href="#">{{data.snapshotHash|subAddrStr(5)}}</a></td> -->
             <td>{{data.timestamp|fomatTime(data.diffTime)}}</td>
             <td>{{data.confirmations}}</td>
             </tr>
@@ -151,16 +156,13 @@
   export default {
     data: function() {
       return {
-        blocksData:[],
-        txnsData:[],
-        accountBalanceInfos:[],
+        accountsResults:[],
         accountBlockInfoList:[],
         pageCount:1,
         total:0,
-        tabFlag:"balance",
-        accountInfo:{},
-        pledgeQuota:{},
-        voteNodeAddress:''
+        tabFlag:"holders",
+        tokenInfo:{},
+        holderCount:''
       }
     },
     created() {
@@ -172,7 +174,9 @@
       changeTab:function(tabFlag){
            this.tabFlag = tabFlag;
            this.pageCount = 1;
-           this.loadData(1);
+           if ("holders" == tabFlag) {
+             this.loadData(1);
+           }
       },
 	    clickCallback:function(pageNum){
 	      this.loadData(pageNum);
@@ -180,24 +184,22 @@
         loadData:function(pageNum){
             NProgress.start();
             const self = this;
-            const addr = self.$route.params.address;
+            const tokenId = self.$route.params.tokenId;
 
-            this.url = "/vs-api/address?address="+ addr +"&tabFlag="+ self.tabFlag +"&pageNo=" + pageNum;
+            this.url = "/vs-api/token?tokenId="+ tokenId +"&tabFlag="+ self.tabFlag +"&pageNo=" + pageNum;
 
             this.$axios({
                     method: 'get',
                     url:this.url
             }).then(function(response) {
                 NProgress.done();
-                self.accountInfo = response.data.data.accountInfo;
-                self.pledgeQuota = response.data.data.pledgeQuota;
-                self.accountBalanceInfos = response.data.data.accountBalanceInfos;
+                self.tokenInfo = response.data.data.tokenInfo;
+                self.holderCount = response.data.data.holderCount;
+                self.accountsResults = response.data.data.accountsResults;
 
                 self.total = response.data.data.total;
                 self.pageCount = response.data.data.pageCount;
                 self.accountBlockInfoList = response.data.data.accountBlockInfoList;
-
-                self.voteNodeAddress = response.data.data.voteNodeAddress;
             }).catch( function(response) {
                 NProgress.done();
             });
