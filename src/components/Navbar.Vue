@@ -51,14 +51,14 @@
            <span style="padding-left: 0.3rem;font-size: 14px;">{{language}}</span>
            </a>
 			<div id="" class="moreDropdownEN navbar-dropdown">
-            <router-link class="navbar-item" @click.native="changelang('en')" to="">
+            <!-- <router-link class="navbar-item" @click.native="changelang('en')" to="">
               <span>
                 <span class="icon theme-color-font">
                   <svg id="icon-US" class="svg-inline--fa fa-globe fa-w-24" viewBox="0 0 1433 1024" width="100%" height="100%"><path d="M0 0h1433.6v1024H0V0z" fill="#FFFFFF"></path><path d="M0 0h614.4v477.866667H0z" fill="#435DB0"></path><path d="M68.266667 68.266667v68.266666h68.266666V68.266667H68.266667z m136.533333 0v68.266666h68.266667V68.266667H204.8z m136.533333 0v68.266666h68.266667V68.266667H341.333333z m136.533334 0v68.266666h68.266666V68.266667H477.866667zM409.6 136.533333v68.266667h68.266667V136.533333H409.6zM273.066667 136.533333v68.266667h68.266666V136.533333H273.066667zM136.533333 136.533333v68.266667h68.266667V136.533333H136.533333zM68.266667 204.8v68.266667h68.266666V204.8H68.266667z m136.533333 0v68.266667h68.266667V204.8H204.8z m136.533333 0v68.266667h68.266667V204.8H341.333333z m136.533334 0v68.266667h68.266666V204.8H477.866667zM68.266667 341.333333v68.266667h68.266666V341.333333H68.266667z m136.533333 0v68.266667h68.266667V341.333333H204.8z m136.533333 0v68.266667h68.266667V341.333333H341.333333z m136.533334 0v68.266667h68.266666V341.333333H477.866667zM409.6 273.066667v68.266666h68.266667V273.066667H409.6zM273.066667 273.066667v68.266666h68.266666V273.066667H273.066667zM136.533333 273.066667v68.266666h68.266667V273.066667H136.533333z" fill="#A7B6E6"></path><path d="M614.4 0v68.266667h819.2V0H614.4z m0 136.533333v68.266667h819.2V136.533333H614.4z m0 136.533334v68.266666h819.2V273.066667H614.4z m0 136.533333v68.266667h819.2V409.6H614.4zM0 546.133333v68.266667h1433.6V546.133333H0z m0 136.533334v68.266666h1433.6v-68.266666H0z m0 136.533333v68.266667h1433.6v-68.266667H0z m0 136.533333v68.266667h1433.6v-68.266667H0z" fill="#ED4C49"></path></svg>
                 </span>
                 <strong>English</strong>
               </span>
-            </router-link>
+            </router-link> -->
             
             <router-link class="navbar-item" @click.native="changelang('zh')" to="">
               <span>
@@ -150,7 +150,7 @@
                 Top Accounts by VITE Balance
               </span>
             </router-link>
-            <hr class="navbar-divider">
+            <!-- <hr class="navbar-divider">
             <a class="navbar-item " href="#">
               <span>
                 <span class="icon theme-color-font">
@@ -160,7 +160,7 @@
                 <br>
                 Contracts With verified source codes only
               </span>
-            </a>
+            </a> -->
         </div>
       </div>
     
@@ -269,14 +269,14 @@
            <span style="padding-left: 0.3rem;font-size: 14px;">{{language}}</span>
            </a>
 			<div id="" class="moreDropdownEN navbar-dropdown">
-            <router-link class="navbar-item" @click.native="changelang('en')" to="">
+            <!-- <router-link class="navbar-item" @click.native="changelang('en')" to="">
               <span>
                 <span class="icon has-text-success">
                   <svg id="icon-US" class="svg-inline--fa fa-globe fa-w-24" viewBox="0 0 1433 1024" width="100%" height="100%"><path d="M0 0h1433.6v1024H0V0z" fill="#FFFFFF"></path><path d="M0 0h614.4v477.866667H0z" fill="#435DB0"></path><path d="M68.266667 68.266667v68.266666h68.266666V68.266667H68.266667z m136.533333 0v68.266666h68.266667V68.266667H204.8z m136.533333 0v68.266666h68.266667V68.266667H341.333333z m136.533334 0v68.266666h68.266666V68.266667H477.866667zM409.6 136.533333v68.266667h68.266667V136.533333H409.6zM273.066667 136.533333v68.266667h68.266666V136.533333H273.066667zM136.533333 136.533333v68.266667h68.266667V136.533333H136.533333zM68.266667 204.8v68.266667h68.266666V204.8H68.266667z m136.533333 0v68.266667h68.266667V204.8H204.8z m136.533333 0v68.266667h68.266667V204.8H341.333333z m136.533334 0v68.266667h68.266666V204.8H477.866667zM68.266667 341.333333v68.266667h68.266666V341.333333H68.266667z m136.533333 0v68.266667h68.266667V341.333333H204.8z m136.533333 0v68.266667h68.266667V341.333333H341.333333z m136.533334 0v68.266667h68.266666V341.333333H477.866667zM409.6 273.066667v68.266666h68.266667V273.066667H409.6zM273.066667 273.066667v68.266666h68.266666V273.066667H273.066667zM136.533333 273.066667v68.266666h68.266667V273.066667H136.533333z" fill="#A7B6E6"></path><path d="M614.4 0v68.266667h819.2V0H614.4z m0 136.533333v68.266667h819.2V136.533333H614.4z m0 136.533334v68.266666h819.2V273.066667H614.4z m0 136.533333v68.266667h819.2V409.6H614.4zM0 546.133333v68.266667h1433.6V546.133333H0z m0 136.533334v68.266666h1433.6v-68.266666H0z m0 136.533333v68.266667h1433.6v-68.266667H0z m0 136.533333v68.266667h1433.6v-68.266667H0z" fill="#ED4C49"></path></svg>
                 </span>
                 <strong>English</strong>
               </span>
-            </router-link>
+            </router-link> -->
             
             <router-link class="navbar-item" @click.native="changelang('zh')" to="">
               <span>

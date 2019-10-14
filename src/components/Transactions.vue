@@ -5,7 +5,7 @@
 <header class="bd-header" style="margin-bottom: 0rem;">
   <div class="bd-header-titles" >
     <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Transactions</h1>
-    <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">More than > 999,999,999 transactions found(Showing the last 500k records)</p>
+    <!-- <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">More than > 999,999,999 transactions found(Showing the last 500k records)</p> -->
   </div>
 </header>
 <div class="table-pdiv" style="margin-bottom: 1rem;">
@@ -84,7 +84,7 @@
 	      this.loadData(pageNum);
 	    },
         loadData:function(pageNum){
-
+            NProgress.start();
             const self = this;
             this.url = "/vs-api/txs/?pageNo=" + pageNum;
 

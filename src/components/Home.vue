@@ -46,7 +46,10 @@
 <div class="columns is-desktop" style="margin-right: 0rem;">
   <div class="column" style="padding-right: 0rem;">
     <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
-    	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150 theme-color-font"><span>14 days Transaction History</span></h5></div>
+    	<div class=" has-text-centered" style="border: none; border-radius: 0px;">
+        <h5 class="m-0 lh-150 theme-color-font"><span>最近14日交易量</span></h5>
+        <!-- <h5 class="m-0 lh-150 theme-color-font"><span>14 days Transaction History</span></h5> -->
+        </div>
     	  <div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
     	    <div style="min-width: 255px; height: 200px;">
     	      <x-chart :id="id" :option="option"></x-chart>
@@ -57,7 +60,10 @@
 
   <div class="column" style="padding-right: 0rem;">
     <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
-    	<div class=" has-text-centered" style="border: none; border-radius: 0px;"><h5 class="m-0 lh-150 theme-color-font"><span>14 days Active Account</span></h5></div>
+    	<div class=" has-text-centered" style="border: none; border-radius: 0px;">
+        <h5 class="m-0 lh-150 theme-color-font"><span>最近14日活跃地址数</span></h5>
+        <!-- <h5 class="m-0 lh-150 theme-color-font"><span>14 days Active Account</span></h5> -->
+      </div>
     	<div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
     	  <div id="container" style="min-width: 255px; height: 200px;">
     	      <x-chart :id="id2" :option="option2"></x-chart>
@@ -190,6 +196,7 @@ import HighCharts from 'highcharts'
 
                 self.option.xAxis.categories = response.data.data.cateArr;
                 self.option.series[0].data = response.data.data.valArr;
+                self.option.series[0].name = "交易数";
                 // self.option = options.bar;
                 if (!self.charInit1) {
                   HighCharts.chart(self.id,self.option);
