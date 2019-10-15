@@ -18,16 +18,18 @@
             <tr>
             <th style="padding-left: 3rem;">Ranking</th>
             <th>Name</th>
-            <th style="">Votes</th>
+            <th>Votes</th>
             <th>Address</th>
+            <th>Last Snapshot</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="data in nodeListData">
             <td style="padding-left: 3rem;width: 6rem;"><span class="ranking-span" :class="{'top25class':data.ranking<=25, 'nottop25class':data.ranking>25}">{{data.ranking}}</span></td>
-            <td><a href="#">{{data.name}}</a></td>
+            <td><router-link :to="'/address/'+data.nodeAddr">{{data.name}}</router-link></td>
             <td>{{data.voteNum|fomatNumber18(18,0)|fomatNumber3}}</td>
             <td><router-link :to="'/address/'+data.nodeAddr">{{data.nodeAddr|subAddrStr(8)}}</router-link></td>
+            <td>{{data.timestamp|fomatTime(data.diffTime)}}</td>
             </tr>
         </tbody>
         </table>

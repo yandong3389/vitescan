@@ -23,8 +23,8 @@
         <tbody>
             <tr v-for="data in blocksData">
             <td><router-link :to="'/block/'+data.height">#{{data.height}}</router-link></td>
-            <td><a href="#">{{data.txCount}} txns</a></td>
-            <td><a href="#">{{data.nodeName}}</a></td>
+            <td><router-link :to="'/block/'+data.height">{{data.txCount}} txns</router-link></td>
+            <td><router-link :to="'/address/'+data.nodeAddr">{{data.nodeName}}</router-link></td>
             <td>{{data.timestamp|fomatTime(data.diffTime)}}</td>
             </tr>
         </tbody>

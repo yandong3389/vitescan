@@ -71,6 +71,10 @@ Vue.filter('fomatTime', function (valueTime,diffTime) {
   var newData =  Date.parse(new Date());
   // var diffTime = Math.abs(newData-valueTime);
 
+  if (!valueTime && !diffTime){
+      return "--";
+  }
+
   if(valueTime){
 
     if (diffTime > 7 * 24 * 3600 * 1000) {
@@ -182,10 +186,15 @@ Vue.filter('fomatNumber', function(num, digits) {
 });
 
 Vue.filter('fomatNumber3', function(num) {
-  return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','));
+
+  if (num > 999) {
+    return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','));
+  } else {
+    return num;
+  }
 });
 Vue.filter('fomatNumber18', function(num, x, digits) {
-  return parseFloat((num/Math.round(Math.pow(10,x))).toFixed(digits));
+  return toNonExponential(parseFloat((num/Math.round(Math.pow(10,x))).toFixed(digits)));
 });
 Vue.filter('subAddrStr', function(addr, num) {
 
@@ -209,6 +218,19 @@ Vue.filter('blockTypeStr', function(blockType){
     }
 
 });
+
+function toNonExponential(num) {
+
+  if (isNaN(num)) {
+    return num;
+  }
+
+  // console.info(num);
+  var m = num.toExponential().match(/\d(?:\.(\d*))?e([+-]\d+)/);
+  var newNum = num.toFixed(Math.max(0, (m[1] || '').length - m[2]));
+  // console.info(newNum);
+  return newNum;
+}
 
 
 /* eslint-disable no-new */
