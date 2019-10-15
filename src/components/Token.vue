@@ -66,15 +66,15 @@
     <div class="container table-div" style="padding: 2rem;background: white;" >
 
       <div v-if="tabFlag=='holders'">
-        <table class="table is-striped" style="width: 100%;border: solid 1px #dbdbdb;">
+        <table class="table is-striped table-th" style="width: 100%;border: solid 1px #dbdbdb;">
                 <thead>
             <tr>
             <th>Rank</th>
             <th>Address</th>
             <th>Name Tag</th>
             <th>Wallet Balance</th>
-            <th>DEX Available</th>
-            <th>DEX Locked</th>
+
+            <th>ViteX DEX <br />Available / Locked</th>
             <th><i class="fa fa-angle-down text-secondary"></i> Balance Total</th>
             <th>Percentage</th>
             <th>Txn Count</th>
@@ -87,12 +87,12 @@
                 <span v-if="data.addrType=='1'" >
                     <i title="Contract" class="fa fa-file-contract theme-color-font"></i>
                 </span>
-                <router-link :to="'/address/'+data.address">{{data.address}}</router-link>
+                <router-link :to="'/address/'+data.address">{{data.address|subAddrStr(12)}}</router-link>
               </td>
               <td>{{data.nameTag}}</td>
               <td>{{data.balance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
-              <td>{{data.dexAvailableBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
-              <td>{{data.dexLockedBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
+
+              <td>{{data.dexAvailableBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}} / {{data.dexLockedBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
               <td>{{data.totalBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
               <td>{{data.percentage|fomatNumber18(0,4)}}%</td>
               <td>{{data.txnCount|fomatNumber3 }}</td>
@@ -250,5 +250,15 @@
 }
 .text-success {
     color: #93c54b!important;
+}
+.table-th th {
+      text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.table-th td {
+      text-align: center;
+    display: table-cell;
+    vertical-align: middle;
 }
 </style>

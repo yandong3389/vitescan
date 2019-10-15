@@ -139,7 +139,7 @@
                 
               </span>
             </router-link>
-            <hr class="navbar-divider">
+            <!-- <hr class="navbar-divider">
             <router-link class="navbar-item " to="/accounts">
               <span>
                 <span class="icon theme-color-font">
@@ -149,7 +149,7 @@
                 <br>
                 Top Accounts by VITE Balance
               </span>
-            </router-link>
+            </router-link> -->
             <!-- <hr class="navbar-divider">
             <a class="navbar-item " href="#">
               <span>
@@ -172,6 +172,10 @@
         <router-link class="navbar-item " to="/sbps">
           <span class="icon theme-color-font"><i class="fa fa-server"></i></span>
           <span>SBP</span>
+        </router-link>
+        <router-link class="navbar-item " to="/accounts">
+          <span class="icon theme-color-font"><i class="fa fa-users"></i></span>
+          <span>Top Accounts</span>
         </router-link>
         <router-link class="navbar-item " to="#">
           <span class="icon theme-color-font"><i class="fa fa-chart-bar"></i></span>

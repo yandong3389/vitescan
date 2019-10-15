@@ -254,7 +254,14 @@
             });
 
         }
-    }
+    },
+    watch :{
+  　'$route': function (to, from) {
+       //执行数据更新查询
+       this.tabFlag="balance";
+　　   this.loadData(1);
+　　}
+}
   }
 </script>
 
