@@ -32,7 +32,7 @@
         <tbody>
             <tr v-for="data in accountsData">
               <td>{{data.rank }}</td>
-              <td style="text-align: right;width: 218px;">
+              <td style="text-align: right;width: 228px;">
                 <template v-if="data.vipStaking > 0">
                   <span class="vip-span">VIP</span>
                 </template>
@@ -88,7 +88,18 @@
 	    :page-class="'page-itemV'"
 	    :page-link-class="'page-itemVA'">
 
-      <li ><a tabindex="0">Next</a></li>
+      <!-- <li ><a tabindex="0">Next</a></li> -->
+      <li>
+  <div class="select">
+    <select>
+      <option>Select dropdown</option>
+      <option>With options</option>
+    </select>
+  </div>
+
+      </li>
+
+      <li><input class="input" type="text" placeholder="Normal input"></li>
 	  </paginate>
 
       </div>

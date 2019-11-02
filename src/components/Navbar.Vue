@@ -25,7 +25,7 @@
           <span class="icon theme-color-font">
             <i class="fa fa-globe"></i>
           </span>
-           <span>PreMainnet</span>
+           <span>Mainnet</span>
            </a>
 			<div id="" class="moreDropdownEN navbar-dropdown">
             <router-link class="navbar-item" to="">
@@ -33,7 +33,7 @@
                 <span class="icon theme-color-font">
                   <i class="fa fa-globe"></i>
                 </span>
-                <strong>PreMainnet</strong>
+                <strong>Mainnet</strong>
               </span>
             </router-link>
             </div>
@@ -247,7 +247,7 @@
           <span class="icon theme-color-font">
             <i class="fa fa-globe"></i>
           </span>
-           <span>PreMainnet</span>
+           <span>Mainnet</span>
            </a>
 			<div id="" class="moreDropdownEN navbar-dropdown">
             <router-link class="navbar-item" @click.native="changelang('en')" to="">
@@ -255,7 +255,7 @@
                 <span class="icon has-text-success">
                   <i class="fa fa-globe"></i>
                 </span>
-                <strong>PreMainnet</strong>
+                <strong>Mainnet</strong>
               </span>
             </router-link>
             </div>

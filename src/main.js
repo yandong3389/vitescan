@@ -248,9 +248,9 @@ router.beforeEach((to, from, next) => {
 
   /* 路由发生变化修改页面title */
   if (to.meta.title) {
-    document.title = to.meta.title + ' - ViteScan.io';
+    document.title = to.meta.title + ' | Vite Block Explorer, Account, Token, SBP, Contracts | ViteScan.io';
   }else{
-    document.title = " - ViteScan.io";
+    document.title = 'ViteScan | Vite Block Explorer, Account, Token, SBP, Contracts | ViteScan.io';
  }
   
   // 百度统计

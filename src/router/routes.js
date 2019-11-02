@@ -26,7 +26,7 @@ export default [
     path: '/',
     component: home,
     meta:{
-        title:'Home'
+        title:'ViteScan'
     }
   }
   ,
@@ -34,63 +34,63 @@ export default [
     path: '/blocks',
     component: blocks,
     meta:{
-        title:'Blocks'
+        title:'ViteScan Blocks'
     }
   },
   {
     path: '/block/:height',
     component: block,
     meta:{
-        title:'Block'
+        title:'ViteScan Block'
     }
   },
   {
     path: '/txs',
     component: transactions,
     meta:{
-        title:'Transactions'
+        title:'ViteScan Transactions'
     }
   },
   {
     path: '/tx/:hash',
     component: transaction,
     meta:{
-        title:'Transaction'
+        title:'ViteScan Transaction'
     }
   },
   {
     path: '/tokens',
     component: tokens,
     meta:{
-        title:'Tokens'
+        title:'ViteScan Tokens'
     }
   },
   {
     path: '/token/:tokenId',
     component: token,
     meta:{
-        title:'Token'
+        title:'ViteScan Token'
     }
   },
   {
     path: '/sbps',
     component: sbps,
     meta:{
-        title:'SBP List'
+        title:'ViteScan SBP List'
     }
   },
   {
     path: '/accounts',
     component: accounts,
     meta:{
-        title:'Top Accounts'
+        title:'ViteScan Top Accounts'
     }
   },
   {
     path: '/address/:address',
     component: address,
     meta:{
-        title:'Address'
+        title:'ViteScan Address'
     }
   },
 //  {
