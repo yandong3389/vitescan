@@ -75,6 +75,9 @@
             <th>Wallet Balance</th>
 
             <th>ViteX DEX <br />Available / Locked</th>
+            
+            <th v-if="tokenInfo.tokenId =='tti_564954455820434f494e69b5'">Dividends <br />Staking VX</th>
+
             <th><i class="fa fa-angle-down text-secondary"></i> Balance Total</th>
             <th>Percentage</th>
             <th>Txn Count</th>
@@ -93,6 +96,9 @@
               <td>{{data.balance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
 
               <td>{{data.dexAvailableBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}} / {{data.dexLockedBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
+              <td v-if="tokenInfo.tokenId =='tti_564954455820434f494e69b5'">
+                  {{data.vxLockedBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}
+              </td>
               <td>{{data.totalBalance|fomatNumber18(tokenInfo.decimals,4)|fomatNumber3}}</td>
               <td>{{data.percentage|fomatNumber18(0,4)}}%</td>
               <td>{{data.txnCount|fomatNumber3 }}</td>

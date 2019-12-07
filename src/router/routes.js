@@ -8,6 +8,7 @@ import token from '@/components/Token'
 import sbps from '@/components/SBPList'
 import accounts from '@/components/Accounts'
 import address from '@/components/Address'
+import viteXLog from '@/components/ViteXLog'
 //import showblog from '@/components/ShowBlog'
 //import aboutus from '@/components/AboutUs'
 //import contact from '@/components/Contact'
@@ -93,6 +94,15 @@ export default [
         title:'ViteScan Address'
     }
   },
+  {
+    path: '/vitexLog',
+    component : viteXLog,
+    meta:{
+        title:'ViteScan ViteX Log'
+    }
+  }
+
+
 //  {
 //    path: '/cycleRewardTotal',
 //    component: voteCycleRewardTotal,

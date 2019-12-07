@@ -194,6 +194,9 @@ Vue.filter('fomatNumber3', function(num) {
   }
 });
 Vue.filter('fomatNumber18', function(num, x, digits) {
+  if (isNaN(num)) {
+    return 0;
+  }
   return toNonExponential(parseFloat((num/Math.round(Math.pow(10,x))).toFixed(digits)));
 });
 Vue.filter('subAddrStr', function(addr, num) {

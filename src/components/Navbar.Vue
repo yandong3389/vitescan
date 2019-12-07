@@ -177,10 +177,14 @@
           <span class="icon theme-color-font"><i class="fa fa-users"></i></span>
           <span>Top Accounts</span>
         </router-link>
-        <router-link class="navbar-item " to="#">
+        <router-link class="navbar-item " to="/vitexLog">
+          <span class="icon theme-color-font"><i class="fa fa-history"></i></span>
+          <span>ViteX Log</span>
+        </router-link>
+        <!-- <router-link class="navbar-item " to="#">
           <span class="icon theme-color-font"><i class="fa fa-chart-bar"></i></span>
           <span>ViteX</span>
-        </router-link>
+        </router-link> -->
 <!--
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" href="#">
