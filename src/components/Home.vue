@@ -176,7 +176,7 @@ import HighCharts from 'highcharts'
   },
     created() {
         this.loadData();
-        this.timer = setInterval(this.loadData, 1300);
+        this.timer = setInterval(this.loadData, 1000);
     },
     beforeDestroy () {
         clearInterval(this.timer)

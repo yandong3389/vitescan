@@ -29,7 +29,7 @@ module.exports = {
     },
 
     footer:{
-        aboutus: "Aboutus",
+        aboutus: "About Us",
         feedback: "Feedback",
 
         viteDev: "Developer Resources",
