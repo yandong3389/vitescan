@@ -20,35 +20,35 @@
         <table class="table is-striped" style="width: 100%;">
         <tbody>
             <tr>
-              <th width="200">代币名称：</th>
+              <th width="200">{{ $t("token.tokenName") }}：</th>
               <td>{{tokenInfo.tokenName}}</td>
             </tr>
             <tr>
-              <th>代币简称:	</th>
+              <th>{{ $t("token.tokenSymbol") }}:	</th>
               <td>{{tokenInfo.tokenSymbol}}</td>
             </tr>
             <tr>
-              <th>持币用户数：</th>
+              <th>{{ $t("token.holderCount") }}：</th>
               <td>{{holderCount}}</td>
             </tr>
             <tr>
-              <th>总供应量：</th>
+              <th>{{ $t("token.tokenSupply") }}：</th>
               <td>{{tokenInfo.tokenSupply|fomatNumber18(tokenInfo.decimals,0)|fomatNumber3}}</td>
             </tr>
             <tr>
-              <th>铸币地址：</th>
+              <th>{{ $t("token.owner") }}：</th>
               <td><router-link :to="'/address/'+tokenInfo.owner">{{tokenInfo.owner}}</router-link></td>
             </tr>
             <tr>
-              <th>是否可增发：</th>
-              <td>{{tokenInfo.isReissuable == '0'?'否':'是'}}</td>
+              <th>{{ $t("token.isreissuable") }}：</th>
+              <td>{{tokenInfo.isReissuable == '0'?'No':'Yes'}}</td>
             </tr>
             <tr>
-              <th>是否仅支持铸币者销毁：</th>
-              <td>{{tokenInfo.ownBurnOnly == '0'?'否':'是'}}</td>
+              <th>{{ $t("token.ownBurnOnly") }}：</th>
+              <td>{{tokenInfo.ownBurnOnly == '0'?'No':'Yes'}}</td>
             </tr>
             <tr>
-              <th>小数位数：</th>
+              <th>{{ $t("token.decimals") }}：</th>
               <td>{{tokenInfo.decimals}}</td>
             </tr>
         </tbody>

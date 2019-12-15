@@ -7,37 +7,37 @@
 
 <div class="level is-desktop" style="padding: 20px;background: white;margin-bottom: 0rem;">
   <div class="column level-item has-text-centered">
-    <div><p class="heading">区块高度</p><p class="title">{{indexData.chainHeight}}</p></div>
+    <div><p class="heading">{{ $t("index.blockHeight") }}</p><p class="title">{{indexData.chainHeight}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">当前/峰值TPS</p><p class="title">{{indexData.sysTps}}/{{indexData.sysTpsMax}}</p></div>
+    <div><p class="heading">{{ $t("index.tps") }}</p><p class="title">{{indexData.sysTps}}/{{indexData.sysTpsMax}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">过去24小时交易量</p><p class="title">{{indexData.last24HTxAmount|fomatNumber3}}</p></div>
+    <div><p class="heading">{{ $t("index.lastTxs") }}</p><p class="title">{{indexData.last24HTxAmount|fomatNumber3}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">总地址数</p><p class="title">{{indexData.addressTotal|fomatNumber3}}</p></div>
+    <div><p class="heading">{{ $t("index.totalAccounts") }}</p><p class="title">{{indexData.addressTotal|fomatNumber3}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">当前总发行量</p><p class="title">{{indexData.viteTokenTotal|fomatNumber3}}</p></div>
+    <div><p class="heading">{{ $t("index.totalSupply") }}</p><p class="title">{{indexData.viteTokenTotal|fomatNumber3}}</p></div>
   </div>
 </div>
 <hr class="navbar-divider" style="margin: 0px;">
 <div class="level is-desktop" style="padding: 20px;background: white;">
     <div class="column level-item has-text-centered">
-    <div><p class="heading">超级节点</p><p class="title">{{indexData.SBPTotal}}</p></div>
+    <div><p class="heading">{{ $t("index.totalSBP") }}</p><p class="title">{{indexData.SBPTotal}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">全节点</p><p class="title">{{indexData.fullNodeTotal}}</p></div>
+    <div><p class="heading">{{ $t("index.totalNodes") }}</p><p class="title">{{indexData.fullNodeTotal}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">Token数量</p><p class="title">{{indexData.TokenAmount}}</p></div>
+    <div><p class="heading">{{ $t("index.totalTokens") }}</p><p class="title">{{indexData.TokenAmount}}</p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">价格</p><p class="title">{{indexData.VitePrice}}<span style="font-size: 14px;color: rgba(0,0,0,.45);"> USD</span></p></div>
+    <div><p class="heading">{{ $t("index.price") }}</p><p class="title">{{indexData.VitePrice}}<span style="font-size: 14px;color: rgba(0,0,0,.45);"> USD</span></p></div>
   </div>
   <div class="column level-item has-text-centered">
-    <div><p class="heading">市值排名</p><p class="title">No.{{indexData.ViteRank}}</p></div>
+    <div><p class="heading">{{ $t("index.rank") }}</p><p class="title">No.{{indexData.ViteRank}}</p></div>
   </div>
 </div>
 </section>
@@ -47,7 +47,7 @@
   <div class="column" style="padding-right: 0rem;">
     <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
     	<div class=" has-text-centered" style="border: none; border-radius: 0px;">
-        <h5 class="m-0 lh-150 theme-color-font"><span>最近14日交易量</span></h5>
+        <h5 class="m-0 lh-150 theme-color-font"><span>{{ $t("index.last14dayTxs") }}</span></h5>
         <!-- <h5 class="m-0 lh-150 theme-color-font"><span>14 days Transaction History</span></h5> -->
         </div>
     	  <div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
@@ -61,7 +61,7 @@
   <div class="column" style="padding-right: 0rem;">
     <div class="bd-notification" style="background: white;padding-bottom: 0rem;">
     	<div class=" has-text-centered" style="border: none; border-radius: 0px;">
-        <h5 class="m-0 lh-150 theme-color-font"><span>最近14日活跃地址数</span></h5>
+        <h5 class="m-0 lh-150 theme-color-font"><span>{{ $t("index.last14dayAcAccs") }}</span></h5>
         <!-- <h5 class="m-0 lh-150 theme-color-font"><span>14 days Active Account</span></h5> -->
       </div>
     	<div class="card-body pt-0" style="padding-left: 1rem; padding-right: 1rem;">
@@ -140,6 +140,7 @@
 
 <script>
   import axios from 'axios';
+  import i18n from '../i18n/i18n';
   import logo from './../assets/logo-white.png';
   import blogo from './../assets/logo-black.png';
   import countTo from 'vue-count-to';
@@ -166,7 +167,8 @@ import HighCharts from 'highcharts'
         startVal:0,
         txnsData:[],
         charInit1:false,
-        charInit2:false
+        charInit2:false,
+        msgType:""
       }
     },
   components: {
@@ -189,14 +191,28 @@ import HighCharts from 'highcharts'
             this.$axios({
                     method: 'get',
                     url:this.url
-            }).then(function(response) {      
+            }).then(function(response) {    
+              
+              let locale1 = localStorage.getItem('locale') || 'en';
+
+              // 切换语言重加载图表
+              if (self.msgType != "" && self.msgType != locale1) {
+                self.charInit1 = false;
+                self.charInit2 = false;
+              }
+
+                self.msgType = locale1;
+                let mess = i18n.messages[locale1].index;
+                let txs = mess.txs;
+                let acaccs = mess.acaccs;
+
                 self.blocksData = response.data.data.snapshotBlockInfos;
                 self.txnsData = response.data.data.accountBlockInfos;
                 self.indexData = response.data.data;
 
                 self.option.xAxis.categories = response.data.data.cateArr;
                 self.option.series[0].data = response.data.data.valArr;
-                self.option.series[0].name = "交易数";
+                self.option.series[0].name = txs;
                 // self.option = options.bar;
                 if (!self.charInit1) {
                   HighCharts.chart(self.id,self.option);
@@ -205,7 +221,7 @@ import HighCharts from 'highcharts'
 
                 self.option2.xAxis.categories = response.data.data.cateArr2;
                 self.option2.series[0].data = response.data.data.valArr2;
-                self.option2.series[0].name = "活跃地址数";
+                self.option2.series[0].name = acaccs;
                 // self.option2 = options.bar;
                 if (!self.charInit2) {
                   HighCharts.chart(self.id2,self.option2);

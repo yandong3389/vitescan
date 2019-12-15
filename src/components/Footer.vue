@@ -8,11 +8,11 @@
       <p class="bd-footer-link-title" style="color: white;">ViteScan</p>
       <hr class="navbar-divider theme-color-footer-hr hrshow">
         <p class="bd-footer-link">
-          <a href="#">关于我们</a>
+          <a href="#">{{ $t("footer.aboutus") }}</a>
         </p>
 
         <p class="bd-footer-link" style="color: #ffffffb3;">
-          建议反馈
+          {{ $t("footer.feedback") }}
         </p>
         <p style="margin-top: 0.5rem;">
           <img src="/static/wechat.jpg" alt="wechat" width="100" height="100">
@@ -39,7 +39,7 @@
     </div>
 
     <div class="column is-3">
-      <p class="bd-footer-link-title" style="color: white;">Vite开发中心</p>
+      <p class="bd-footer-link-title" style="color: white;">{{ $t("footer.viteDev") }}</p>
       <hr class="navbar-divider theme-color-footer-hr hrshow">
         <p class="bd-footer-link">
           <a href="https://github.com/vitelabs/go-vite" target="_blank">Github</a>
@@ -48,7 +48,7 @@
           <a href="https://pre-mainnet.vite.wiki/" target="_blank">Wiki</a>
         </p>
         <p class="bd-footer-link">
-          <a href="https://github.com/vitelabs/whitepaper/blob/master/vite_en.pdf">White Paper</a>
+          <a href="https://github.com/vitelabs/whitepaper/blob/master/vite_en.pdf">{{ $t("footer.vitewp") }}</a>
         </p>
         <!--
         <p class="bd-footer-link">
@@ -61,7 +61,7 @@
     </div>
 
     <div class="column is-3">
-      <p class="bd-footer-link-title" style="color: white;">Vite生态</p>
+      <p class="bd-footer-link-title" style="color: white;">{{ $t("footer.viteEco") }}</p>
       <hr class="navbar-divider theme-color-footer-hr hrshow">
       <p class="bd-footer-link">
 	    <a href="https://vite.org/" target="_blank">
@@ -70,7 +70,7 @@
 	      <i class="fas fa-star"></i>
 	    </span>
        -->
-	    Vite官网
+	    {{ $t("footer.viteOfficialWebsite") }}
 	    <!-- <em>https://vite.org</em> -->
 	  </a>
 	</p>
@@ -82,7 +82,7 @@
 	      <i class="fas fa-heart"></i>
 	    </span>
        -->
-	    Vite钱包
+	    {{ $t("footer.viteWallet") }}
 	    <!-- <em>https://wallet.vite.net</em> -->
 	  </a>
 	</p>
@@ -94,7 +94,7 @@
 		      <i class="fas fa-rocket"></i>
 		    </span>
          -->
-        ViteX DEX
+        {{ $t("footer.viteDex") }}
 		    <!-- <strong>ViteX DEX（手续费9折邀请码：1918500189）</strong> -->
 		    <!-- <em>https://x.vite.net</em> -->
 		  </a>
@@ -107,7 +107,7 @@
 		      <i class="fas fa-certificate"></i>
 		    </span>
          -->
-		    Vite商城
+		    {{ $t("footer.ViteStore") }}
 		    <!-- <em>https://global.vite.store</em> -->
 		  </a>
 		</p>
@@ -119,7 +119,7 @@
 		     <i class="fas fa-exchange-alt"></i>
 		    </span>
          -->
-		    Vite官方论坛
+		    {{ $t("footer.ViteForum") }}
 		    <!-- <em>https://forum.vite.net</em> -->
 		  </a>
 		</p>
@@ -127,10 +127,10 @@
     </div>
 
     <div class="column is-3">
-      <p class="bd-footer-link-title" style="color: white;">Vite媒体</p>
+      <p class="bd-footer-link-title" style="color: white;">{{ $t("footer.viteMedia") }}</p>
       <hr class="navbar-divider theme-color-footer-hr hrshow">
         <p class="bd-footer-link">
-          <a href="https://weibo.com/u/6572727462">微博</a>
+          <a href="https://weibo.com/u/6572727462">{{ $t("footer.viteWeibo") }}</a>
         </p>
         <p class="bd-footer-link">
           <a href="https://twitter.com/vitelabs" target="_blank">Twitter</a>

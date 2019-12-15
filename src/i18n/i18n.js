@@ -11,10 +11,9 @@ const messages = {
   zh: zh
 }
 
-console.log(messages.zh)
 
 const i18n = new VueI18n({
-  locale: localStorage.getItem('locale') || 'zh'
+  locale: localStorage.getItem('locale') || 'en'
   ,
   messages 
 })

@@ -63,10 +63,15 @@ Vue.config.productionTip = false
 
 
 
-
-
 //时间显示问题（几天前、几分钟前）
 Vue.filter('fomatTime', function (valueTime,diffTime) {
+
+  let locale1 = localStorage.getItem('locale') || 'en';
+  let mess = i18n.messages[locale1].index;
+  let secs = mess.secs;
+  let mins = mess.mins;
+  let hour = mess.hour;
+  let day = mess.day;
 
   var newData =  Date.parse(new Date());
   // var diffTime = Math.abs(newData-valueTime);
@@ -97,26 +102,26 @@ Vue.filter('fomatTime', function (valueTime,diffTime) {
 
       // var time = newData - diffTime;
       var dayNum = Math.floor(diffTime / (24 * 60 * 60 * 1000));
-      return dayNum + " 天前";
+      return dayNum + " " + day;
 
     } else if (diffTime < 24 * 3600 * 1000 && diffTime > 3600 * 1000) {
       // //注释("一天之内");
       // var time = newData - diffTime;
       var dayNum = Math.floor(diffTime / (60 * 60 * 1000));
-      return dayNum + " 小时前";
+      return dayNum + " " + hour;
 
     } else if (diffTime < 3600 * 1000 && diffTime >= 60 * 1000) {
       // //注释("一小时之内");
       // var time = newData - diffTime;
       var dayNum = Math.floor(diffTime / (60 * 1000));
-      return dayNum + " 分钟前";
+      return dayNum + " " + mins;
 
     } else if (diffTime < 60 * 1000) {
       // //注释("一小时之内");
       // var time = newData - diffTime;
       var dayNum = Math.round(diffTime / 1000);
       // dayNum = dayNum+1;
-      return dayNum + " 秒前";
+      return dayNum + " " + secs;
     }
   }
 });
