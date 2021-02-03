@@ -123,7 +123,17 @@
 		    <!-- <em>https://forum.vite.net</em> -->
 		  </a>
 		</p>
-
+        <p class="bd-footer-link">
+		  <a href="http://vitetxs.de/" target="_blank">
+        <!--  
+		    <span class="bd-footer-link-icon has-text-bootstrap">
+		     <i class="fas fa-exchange-alt"></i>
+		    </span>
+         -->
+		    Vitetxs.de
+		    <!-- <em>https://forum.vite.net</em> -->
+		  </a>
+		</p>
     </div>
 
     <div class="column is-3">
@@ -159,7 +169,7 @@
   <div class="container" style="margin-top: 50px;">
     <hr class="navbar-divider theme-color-footer-hr hrshow">
     <div class="columns is-vcentered">
-        <div class="column is-4"><p class="">Copyright© 2019 vitescan.io</p></div> 
+        <div class="column is-4"><p class="">Copyright© 2019-2021 vitescan.io</p></div> 
 		<div class="column is-8 leftright faddr" style="">Donations <router-link to="/address/vite_bb684ad129fc08261b6453ccc23bea0d6110fc5d16bd788888" style="">vite_bb684ad129fc08261b6453ccc23bea0d6110fc5d16bd788888</router-link></div>
 	</div>
   </div>

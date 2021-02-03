@@ -23,11 +23,11 @@
               <th width="240">Transaction Hash：</th>
               <td>{{txDetail.hash}}</td>
             </tr>
-            <tr>
+            <tr v-if="txDetail.sendBlockHash != '0000000000000000000000000000000000000000000000000000000000000000'">
               <th>Request Transaction Hash：</th>
-              <td><router-link :to="'/tx/'+txDetail.receiveBlockHash">{{txDetail.receiveBlockHash}}</router-link></td>
+              <td><router-link :to="'/tx/'+txDetail.sendBlockHash">{{txDetail.sendBlockHash}}</router-link></td>
             </tr>
-            <tr>
+            <tr v-if="txDetail.receiveBlockHash != null">
               <th>Response Transaction Hash：</th>
               <td><router-link :to="'/tx/'+txDetail.receiveBlockHash">{{txDetail.receiveBlockHash}}</router-link></td>
             </tr>

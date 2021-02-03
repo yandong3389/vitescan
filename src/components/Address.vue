@@ -25,7 +25,7 @@
             </tr>
             <tr>
               <th style="">Transactions：</th>
-              <td>{{accountInfo.totalNumber|fomatNumber3}}</td>
+              <td>{{accountInfo.totalNumber|fomatNumber3}} &nbsp;&nbsp;&nbsp;<a href="http://vitetxs.de/" target="_blank">Click to download transaction history</a></td>
               <!-- <td>39182（转入<i class="fa fa-arrow-down text-success"></i>25369 转出<i class="fa fa-arrow-up  text-danger"></i>13813 )</td> -->
             </tr>
             <tr>

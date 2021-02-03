@@ -61,40 +61,28 @@
     <div class="container table-div" style="padding: 2rem;background: white;" >
 
 <div class="buttons has-addons">
-  <button class="button">Yes</button>
-  <button class="button is-info is-selected">Maybe</button>
-  <button class="button">No</button>
-  <button class="button">No</button>
-  <button class="button">No</button>
-  <button class="button">No</button>
-  <button class="button">No</button>
-  <button class="button">No</button>
+  <button class="button">ALL</button>
+  <button class="button is-info is-selected">DexFundNewOrder</button>
+  <button class="button">PlaceOrder</button>
+  <button class="button">DexFundNewAgentOrder</button>
+  <button class="button">Withdraw</button>
+  <button class="button">Deposit</button>
+  <button class="button">StakeForMining</button>
+  <button class="button">LockVxForDividend</button>
 </div>
 
       <div v-if="tabFlag=='txlogs'">
         <table class="table is-striped" style="width: 100%;border: solid 1px #dbdbdb;">
         <thead>
             <tr>
-            <th>Token</th>
-            <th>TokenId</th>
-            <th>decimals</th>
-            <th>Wallet Balance</th>
-            <th>Dex Available</th>
-            <th>Dex Locked</th>
-            <th>Balance Total</th>
-            <th>Price</th>
-            <th>Value</th>
+            <th>Tx ID</th>
+            <th>Date</th>
+            <th>Data</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="data in accountBalanceInfos">
             <td><router-link :to="'/token/'+data.tokenId">{{data.tokenSymbol}}</router-link></td>
-            <td>{{data.tokenId}}</td>
-            <td>{{data.decimals}}</td>
-            <td>{{data.balance|fomatNumber18(data.decimals,data.decimals)|fomatNumber3}}</td>
-            <td>{{data.dexAvailableBalance|fomatNumber18(data.decimals,data.decimals)|fomatNumber3}}</td>
-            <td>{{data.dexLockedBalance|fomatNumber18(data.decimals,data.decimals)|fomatNumber3}}</td>
-            <td>{{data.totalBalance|fomatNumber18(data.decimals,data.decimals)|fomatNumber3}}</td>
             <td>-</td>
             <td>-</td>
             </tr>
