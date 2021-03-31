@@ -45,7 +45,7 @@
           <a href="https://github.com/vitelabs/go-vite" target="_blank">Github</a>
         </p>
         <p class="bd-footer-link">
-          <a href="https://pre-mainnet.vite.wiki/" target="_blank">Wiki</a>
+          <a href="https://docs.vite.org/" target="_blank">Wiki</a>
         </p>
         <p class="bd-footer-link">
           <a href="https://github.com/vitelabs/whitepaper/blob/master/vite_en.pdf">{{ $t("footer.vitewp") }}</a>
@@ -63,17 +63,11 @@
     <div class="column is-3">
       <p class="bd-footer-link-title" style="color: white;">{{ $t("footer.viteEco") }}</p>
       <hr class="navbar-divider theme-color-footer-hr hrshow">
+      
+      <!--
       <p class="bd-footer-link">
-	    <a href="https://vite.org/" target="_blank">
-      <!-- 
-	    <span class="bd-footer-link-icon has-text-star">
-	      <i class="fas fa-star"></i>
-	    </span>
-       -->
-	    {{ $t("footer.viteOfficialWebsite") }}
-	    <!-- <em>https://vite.org</em> -->
-	  </a>
-	</p>
+	      <a href="https://vite.org/" target="_blank"> {{ $t("footer.viteOfficialWebsite") }}</a>
+	    </p>-->
 
       <p class="bd-footer-link">
 	  <a href="https://wallet.vite.net/" target="_blank">
@@ -136,20 +130,30 @@
 		</p>
     </div>
 
+<!--
+Official: https://www.vite.org/
+ViteX Official: https://vitex.net/
+Twitter: https://twitter.com/vitelabs
+Discord: https://discordapp.com/invite/CsVY76q
+Medium: https://medium.com/vitelabs
+-->
     <div class="column is-3">
       <p class="bd-footer-link-title" style="color: white;">{{ $t("footer.viteMedia") }}</p>
       <hr class="navbar-divider theme-color-footer-hr hrshow">
         <p class="bd-footer-link">
-          <a href="https://weibo.com/u/6572727462">{{ $t("footer.viteWeibo") }}</a>
+          <a href="https://www.vite.org/" target="_blank">Official</a>
+        </p>
+        <p class="bd-footer-link">
+          <a href="https://vitex.net/" target="_blank">ViteX Official</a>
         </p>
         <p class="bd-footer-link">
           <a href="https://twitter.com/vitelabs" target="_blank">Twitter</a>
         </p>
         <p class="bd-footer-link">
-          <a href="https://t.me/vite_en" target="_blank">Telegram Group（English）</a>
+          <a href="https://discordapp.com/invite/CsVY76q" target="_blank">Discord</a>
         </p>
         <p class="bd-footer-link">
-          <a href="https://t.me/vite_zh" target="_blank">Telegram Group（中文群）</a>
+          <a href="https://medium.com/vitelabs" target="_blank">Medium</a>
         </p>
         <!--
         <p class="bd-footer-link">
