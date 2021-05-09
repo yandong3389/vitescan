@@ -7,6 +7,12 @@
     <h1 class="title" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">Tokens</h1>
     <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">A total of {{total}} Token found</p>
   </div>
+  <div class="navbar-item search-item">
+    <input placeholder="Search for Token Name or Address" value="" v-model="tokenKeyword" class="search-input theme-color-font">
+     <button  @click="searchTokenByKey()" class="button theme-color router-link-exact-active router-link-active" style="border-radius: 0px 4px 4px 0px;">
+       <span class="fas fa-search"></span>
+     </button>
+  </div>
 </header>
 <div class="table-pdiv" style="margin-bottom: 1rem;">
 <div class="container table-div" >
@@ -75,7 +81,8 @@
       return {
         tokenListData:[],
         pageCount:10,
-        total:''
+        total:'',
+        tokenKeyword:''
       }
     },
     created() {
@@ -91,7 +98,11 @@
         loadData:function(pageNum){
             NProgress.start();
             const self = this;
-            this.url = "/vs-api/tokenList?pageNo=" + pageNum;
+            const tokenKeyword = this.tokenKeyword;
+
+            this.url = "/vs-api/tokenList";
+            this.url += "?pageNo=" + pageNum;
+            this.url += "&q=" + tokenKeyword;
 
             this.$axios({
                     method: 'get',
@@ -104,6 +115,17 @@
             }).catch( function(response) {
                 NProgress.done();
             });
+
+        },
+        searchTokenByKey: function() {
+
+            let tokenKeyword = this.tokenKeyword;
+              
+            if(tokenKeyword === "" || tokenKeyword == null){
+                return false;
+          　}
+            this.loadData(1);
+
 
         }
     }

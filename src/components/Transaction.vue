@@ -131,7 +131,16 @@
               NProgress.done();
             });
         }
+    },
+watch: {
+    $route: {
+      handler () {
+        this.loadData();
+      },
+
+      immediate: true
     }
+  }
   }
 </script>
 
