@@ -38,12 +38,37 @@
             </tr>
             <tr>
               <th style="">Vote Node：</th>
-              <td><router-link :to="'/address/'+voteNodeAddress">{{accountInfo.voteNodeName}}</router-link></td>
+              <td>
+                <template v-if="accountInfo.voteNodeName != '' && accountInfo.voteNodeName != null">
+                   <router-link :to="'/sbp/'+voteNodeName">{{accountInfo.voteNodeName}}</router-link>
+                </template>
+              </td>
             </tr>
             <!-- 节点有效状态{{accountInfo.voteNodeStatus}} -->
             <tr>
               <th>Total Votes:	</th>
-              <td>{{accountInfo.viteBalance|fomatNumber18(18,18)|fomatNumber3}} VITE</td>
+              <td>
+                <template v-if="accountInfo.voteNodeName != '' && accountInfo.voteNodeName != null">
+                   {{accountInfo.viteBalance|fomatNumber18(18,18)|fomatNumber3}} VITE
+                </template>
+              </td>
+            </tr>
+
+            <tr>
+              <th>Staking SBP:	</th>
+              <td>{{accountInfo.sbpStaking == null ? 0 : accountInfo.sbpStaking|fomatNumber3}} VITE</td>
+            </tr>
+            <tr>
+              <th>Staking Quota:	</th>
+              <td>{{accountInfo.quotaStaking|fomatNumber3}} VITE</td>
+            </tr>
+            <tr>
+              <th>Staking Mining:	</th>
+              <td>{{accountInfo.miningStaking|fomatNumber3}} VITE</td>
+            </tr>
+            <tr>
+              <th>Staking VIP / SVIP:	</th>
+              <td>{{accountInfo.vipStaking|fomatNumber3}} VITE / {{accountInfo.svipStaking|fomatNumber3}} VITE</td>
             </tr>
         </tbody>
         </table>
@@ -54,8 +79,6 @@
     <li :class="{'is-active':tabFlag=='balance'}"><a href="javascript:;" @click="changeTab('balance')">Token Balance</a></li>
     <li :class="{'is-active':tabFlag=='txns'}"><a href="javascript:;" @click="changeTab('txns')">Transactions</a></li>
     <li :class="{'is-active':tabFlag=='untxns'}"><a href="javascript:;" @click="changeTab('untxns')">Unreceived Transactions</a></li>
-    <li :class="{'is-active':tabFlag=='snaplist'}"><a href="javascript:;" @click="changeTab('snaplist')">Snapshot Block List</a></li>
-    <li :class="{'is-active':tabFlag=='voters'}"><a href="javascript:;" @click="changeTab('voters')">Voters</a></li>
     <li :class="{'is-active':tabFlag=='contract'}"><a href="javascript:;" @click="changeTab('contract')">Contract</a></li>
   </ul>
 </div>
@@ -125,50 +148,6 @@
         </tbody>
         </table>
         </div>
-
-      <div v-if="tabFlag=='snaplist'">
-        <table class="table is-striped" style="width: 100%;border: solid 1px #dbdbdb;">
-        <thead>
-            <tr>
-            <th>Block Number</th>
-            <th>Txns</th>
-            <th>SBP</th>
-            <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="data in snapBlockInfos">
-            <td><router-link :to="'/block/'+data.height">#{{data.height}}</router-link></td>
-            <td><router-link :to="'/block/'+data.height">{{data.txCount}} txns</router-link></td>
-            <td><router-link :to="'/address/'+data.nodeAddr">{{data.nodeName}}</router-link></td>
-            <td>{{data.timestamp|fomatTime(data.diffTime)}}</td>
-            </tr>
-        </tbody>
-        </table>
-        </div>
-
-      <div v-if="tabFlag=='voters'">
-        <table class="table is-striped" style="width: 100%;border: solid 1px #dbdbdb;">
-        <thead>
-            <tr>
-            <th>No</th>
-            <th>Voters</th>
-            <th>Votes</th>
-            <th>Percentage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="data in accountVoterResults">
-              <td>{{data.no}}</td>
-            <td><router-link :to="'/address/'+data.voters">{{data.voters}}</router-link></td>
-            <td>{{data.votes|fomatNumber18(0,4)|fomatNumber3}}</td>
-            <td>{{data.percentage|fomatNumber18(0,4)}}%</td>
-            </tr>
-        </tbody>
-        </table>
-        </div>
-
-
 
       </div>
   

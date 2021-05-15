@@ -141,7 +141,7 @@ Vue.filter('fomatDate', function (valueTime) {
       h = h < 10 ? ('0' + h) : h;
       var minute = date.getMinutes();
       var second = date.getSeconds();
-      minute = minute < 10 ? ('1' + minute) : minute;
+      minute = minute < 10 ? ('0' + minute) : minute;
       second = second < 10 ? ('0' + second) : second;
       return  y + '-' + m + '-' + d+' '+h+':'+minute+":"+second;
   }
@@ -226,7 +226,12 @@ Vue.filter('blockTypeStr', function(blockType){
     }
 
 });
-
+Vue.filter('fomatNumberFixed', function(num, digits) {
+  if (isNaN(num)) {
+    return 0;
+  }
+  return num.toFixed(digits) * 1;
+});
 function toNonExponential(num) {
 
   if (isNaN(num)) {

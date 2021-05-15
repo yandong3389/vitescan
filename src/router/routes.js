@@ -8,6 +8,8 @@ import token from '@/components/Token'
 import sbps from '@/components/SBPList'
 import accounts from '@/components/Accounts'
 import address from '@/components/Address'
+import sbp from '@/components/SBPDetail'
+import sbp_voting_details from '@/components/SBPVoteDetail'
 import viteXLog from '@/components/ViteXLog'
 //import showblog from '@/components/ShowBlog'
 //import aboutus from '@/components/AboutUs'
@@ -92,6 +94,20 @@ export default [
     component: address,
     meta:{
         title:'ViteScan Address'
+    }
+  },
+  {
+    path: '/sbp/:sbp',
+    component: sbp,
+    meta:{
+        title:'ViteScan SBP'
+    }
+  },
+  {
+    path: '/sbp_voting_details/:sbp/:cycle',
+    component: sbp_voting_details,
+    meta:{
+        title:'ViteScan SBP Voting Details'
     }
   },
   {

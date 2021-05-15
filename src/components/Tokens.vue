@@ -8,7 +8,7 @@
     <p class="is-4" style="margin-bottom: 0.5rem;margin-left: 0.5rem;">A total of {{total}} Token found</p>
   </div>
   <div class="navbar-item search-item">
-    <input placeholder="Search for Token Name or Address" value="" v-model="tokenKeyword" class="search-input theme-color-font">
+    <input placeholder="Search for Token Name or Token ID" value="" v-model="tokenKeyword" class="search-input theme-color-font">
      <button  @click="searchTokenByKey()" class="button theme-color router-link-exact-active router-link-active" style="border-radius: 0px 4px 4px 0px;">
        <span class="fas fa-search"></span>
      </button>

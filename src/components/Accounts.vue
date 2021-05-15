@@ -20,6 +20,7 @@
             <th>Address</th>
             <th>Name Tag</th>
             <th>Wallet Balance</th>
+            <th>Staking SBP</th>
             <th>Staking Quota</th>
             <th>Staking Mining</th>
             <th>Staking VIP / SVIP</th>
@@ -32,7 +33,7 @@
         <tbody>
             <tr v-for="data in accountsData">
               <td>{{data.rank }}</td>
-              <td style="text-align: right;width: 228px;">
+              <td style="text-align: right;width: 188px;">
                 <template v-if="data.vipStaking > 0">
                   <span class="vip-span">VIP</span>
                 </template>
@@ -43,10 +44,16 @@
                 <span v-if="data.addrType=='1'" >
                     <i title="Contract" class="fa fa-file-contract theme-color-font"></i>
                 </span>
-                <router-link :to="'/address/'+data.address">{{data.address|subAddrStr(10)}}</router-link>
+                <router-link :to="'/address/'+data.address">{{data.address|subAddrStr(8)}}</router-link>
               </td>
               <td>{{data.nameTag}}</td>
               <td>{{data.balance|fomatNumber18(0,0)|fomatNumber3}}</td>
+              <td>
+                <template v-if="data.sbpStaking == 0 || data.sbpStaking == null">-</template>
+                <template v-if="data.sbpStaking > 0">
+                {{data.sbpStaking|fomatNumber18(0,0)|fomatNumber3}}
+                </template>
+              </td>
               <td>
                 <template v-if="data.quotaStaking == 0">-</template>
                 <template v-if="data.quotaStaking > 0">
